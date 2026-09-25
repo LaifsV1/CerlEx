@@ -19,3 +19,12 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+--------------------------------------------------------------------------------
+
+This licence does not cover the following directories, which remain under the
+Apache License, Version 2.0 (a copy is in each directory):
+
+  lib/core_syntax  adapted from Caramel (https://github.com/leostera/caramel)
+  otp_stdlib       derived from Erlang/OTP (https://github.com/erlang/otp),
+                   Copyright Ericsson AB

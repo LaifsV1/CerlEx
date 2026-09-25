@@ -1,3 +1,9 @@
+%% Compiled with erlc +to_core from lists.erl in this directory, which is
+%% Erlang/OTP stdlib-4.3.1.3's lists.erl modified for CerlEx (2026): NIF
+%% stubs replaced by pure Erlang, and map uses in seq/3 and uniq/1,2 removed.
+%% Copyright Ericsson AB 1996-2022. All Rights Reserved.
+%% Licensed under the Apache License, Version 2.0; see LICENSE in this directory.
+%% 
 module 'lists' ['all'/2,
 		'any'/2,
 		'append'/1,

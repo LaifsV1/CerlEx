@@ -1,3 +1,9 @@
+%% Compiled with erlc +to_core from string.erl in this directory, which
+%% contains the classic character-list functions of Erlang/OTP's string.erl,
+%% extracted and adapted for CerlEx (2026).
+%% Copyright Ericsson AB 1996-2023. All Rights Reserved.
+%% Licensed under the Apache License, Version 2.0; see LICENSE in this directory.
+%% 
 module 'string' ['centre'/2,
 		 'centre'/3,
 		 'chars'/2,

@@ -65,8 +65,13 @@ prefixes; it is not a cost model of any existing tool.
 
 ## Licence
 
-CerlEx is released under the MIT licence (`LICENSE`), except for
-`lib/core_syntax`, which is adapted from the Core Erlang frontend of
-[Caramel](https://github.com/leostera/caramel) and remains under the Apache
-License 2.0 (`lib/core_syntax/LICENSE`).  Files in that directory changed for
-CerlEx say so in their headers.
+CerlEx is released under the MIT licence (`LICENSE`), except for two
+directories that remain under the Apache License 2.0:
+
+- `lib/core_syntax`, adapted from the Core Erlang frontend of
+  [Caramel](https://github.com/leostera/caramel) (`lib/core_syntax/LICENSE`);
+- `otp_stdlib`, the `lists`, `string` and `dict` modules of
+  [Erlang/OTP](https://github.com/erlang/otp), Copyright Ericsson AB
+  (`otp_stdlib/LICENSE`).
+
+Files changed for CerlEx say so in their headers.

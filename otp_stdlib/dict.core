@@ -1,3 +1,8 @@
+%% Compiled with erlc +to_core from dict.erl in this directory, which is
+%% Erlang/OTP stdlib-4.3.1.3's dict.erl, unmodified.
+%% Copyright Ericsson AB 2000-2021. All Rights Reserved.
+%% Licensed under the Apache License, Version 2.0; see LICENSE in this directory.
+%% 
 module 'dict' ['append'/3,
 	       'append_list'/3,
 	       'erase'/2,
