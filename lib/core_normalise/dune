@@ -1,0 +1,5 @@
+(library
+ (name core_normalise)
+ (preprocess
+  (pps ppx_sexp_conv))
+ (libraries sexplib syntax))

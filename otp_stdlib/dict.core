@@ -1,0 +1,2826 @@
+module 'dict' ['append'/3,
+	       'append_list'/3,
+	       'erase'/2,
+	       'fetch'/2,
+	       'fetch_keys'/1,
+	       'filter'/2,
+	       'find'/2,
+	       'fold'/3,
+	       'from_list'/1,
+	       'is_empty'/1,
+	       'is_key'/2,
+	       'map'/2,
+	       'merge'/3,
+	       'module_info'/0,
+	       'module_info'/1,
+	       'new'/0,
+	       'size'/1,
+	       'store'/3,
+	       'take'/2,
+	       'to_list'/1,
+	       'update'/3,
+	       'update'/4,
+	       'update_counter'/3]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[111|[116|[112|[95|[115|[116|[100|[108|[105|[98|[47|[100|[105|[99|[116|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]],1}],
+		%% Line 38
+		'compile' =
+		    %% Line 38
+		    [{'nowarn_deprecated_function',[{'erlang','phash',2}]}],
+		%% Line 46
+		'export_type' =
+		    %% Line 46
+		    [{'dict',0}|[{'dict',2}]],
+		%% Line 60
+		'type' =
+		    %% Line 60
+		    [{'segs',{'type',{60,29},'tuple','any'},[{'var',{60,12},'_Key'}|[{'var',{60,18},'_Value'}]]}],
+		%% Line 63
+		'record' =
+		    %% Line 63
+		    [{'dict',[{'typed_record_field',{'record_field',{64,3},{'atom',{64,3},'size'},{'integer',{64,8},0}},{'type',{64,20},'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',{65,3},{'atom',{65,3},'n'},{'integer',{65,6},16}},{'type',{65,24},'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',{66,3},{'atom',{66,3},'maxn'},{'integer',{66,9},16}},{'type',{66,27},'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',{67,3},{'atom',{67,3},'bso'},{'op',{67,17},'div',{'integer',{67,8},16},{'integer',{67,21},2}}},{'type',{67,27},'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',{68,3},{'atom',{68,3},'exp_size'},{'op',{68,13},'*',{'integer',{68,13},16},{'integer',{68,13},5}}},{'type',{68,27},'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',{69,3},{'atom',{69,3},'con_size'},{'op',{69,13},'*',{'integer',{69,13},16},{'integer',{69,13},3}}},{'type',{69,27},'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',{70,3},{'atom',{70,3},'empty'}},{'type',{70,19},'tuple','any'}}|[{'typed_record_field',{'record_field',{71,3},{'atom',{71,3},'segs'}},{'user_type',{71,18},'segs',[{'var',{71,23},'_'}|[{'var',{71,26},'_'}]]}}]]]]]]]]}],
+		%% Line 75
+		'type' =
+		    %% Line 75
+		    [{'dict',{'user_type',{75,17},'dict',[{'var',{75,22},'_'}|[{'var',{75,25},'_'}]]},[]}],
+		%% Line 77
+		'opaque' =
+		    %% Line 77
+		    [{'dict',{'type',{77,29},'record',[{'atom',{77,30},'dict'}|[{'type',{77,35},'field_type',[{'atom',{77,35},'segs'}|[{'user_type',{77,43},'segs',[{'var',{77,48},'Key'}|[{'var',{77,53},'Value'}]]}]]}]]},[{'var',{77,14},'Key'}|[{'var',{77,19},'Value'}]]}],
+		%% Line 82
+		'spec' =
+		    %% Line 82
+		    [{{'new',0},[{'type',{82,10},'fun',[{'type',{82,10},'product',[]}|[{'user_type',{82,16},'dict',[]}]]}]}],
+		%% Line 88
+		'spec' =
+		    %% Line 88
+		    [{{'is_key',2},[{'type',{88,13},'bounded_fun',[{'type',{88,13},'fun',[{'type',{88,13},'product',[{'var',{88,14},'Key'}|[{'var',{88,19},'Dict'}]]}|[{'type',{88,28},'boolean',[]}]]}|[[{'type',{89,7},'constraint',[{'atom',{89,7},'is_subtype'}|[[{'var',{89,7},'Dict'}|[{'user_type',{89,15},'dict',[{'var',{89,20},'Key'}|[{'ann_type',{89,25},[{'var',{89,25},'Value'}|[{'type',{89,34},'term',[]}]]}]]}]]]]}]]]}]}],
+		%% Line 100
+		'spec' =
+		    %% Line 100
+		    [{{'to_list',1},[{'type',{100,14},'bounded_fun',[{'type',{100,14},'fun',[{'type',{100,14},'product',[{'var',{100,15},'Dict'}]}|[{'var',{100,24},'List'}]]}|[[{'type',{101,7},'constraint',[{'atom',{101,7},'is_subtype'}|[[{'var',{101,7},'Dict'}|[{'user_type',{101,15},'dict',[{'var',{101,20},'Key'}|[{'var',{101,25},'Value'}]]}]]]]}|[{'type',{102,7},'constraint',[{'atom',{102,7},'is_subtype'}|[[{'var',{102,7},'List'}|[{'type',{102,15},'list',[{'type',{102,16},'tuple',[{'var',{102,17},'Key'}|[{'var',{102,22},'Value'}]]}]}]]]]}]]]]}]}],
+		%% Line 107
+		'spec' =
+		    %% Line 107
+		    [{{'from_list',1},[{'type',{107,16},'bounded_fun',[{'type',{107,16},'fun',[{'type',{107,16},'product',[{'var',{107,17},'List'}]}|[{'var',{107,26},'Dict'}]]}|[[{'type',{108,7},'constraint',[{'atom',{108,7},'is_subtype'}|[[{'var',{108,7},'Dict'}|[{'user_type',{108,15},'dict',[{'var',{108,20},'Key'}|[{'var',{108,25},'Value'}]]}]]]]}|[{'type',{109,7},'constraint',[{'atom',{109,7},'is_subtype'}|[[{'var',{109,7},'List'}|[{'type',{109,15},'list',[{'type',{109,16},'tuple',[{'var',{109,17},'Key'}|[{'var',{109,22},'Value'}]]}]}]]]]}]]]]}]}],
+		%% Line 114
+		'spec' =
+		    %% Line 114
+		    [{{'size',1},[{'type',{114,11},'bounded_fun',[{'type',{114,11},'fun',[{'type',{114,11},'product',[{'var',{114,12},'Dict'}]}|[{'type',{114,21},'non_neg_integer',[]}]]}|[[{'type',{115,7},'constraint',[{'atom',{115,7},'is_subtype'}|[[{'var',{115,7},'Dict'}|[{'user_type',{115,15},'dict',[]}]]]]}]]]}]}],
+		%% Line 119
+		'spec' =
+		    %% Line 119
+		    [{{'is_empty',1},[{'type',{119,15},'bounded_fun',[{'type',{119,15},'fun',[{'type',{119,15},'product',[{'var',{119,16},'Dict'}]}|[{'type',{119,25},'boolean',[]}]]}|[[{'type',{120,7},'constraint',[{'atom',{120,7},'is_subtype'}|[[{'var',{120,7},'Dict'}|[{'user_type',{120,15},'dict',[]}]]]]}]]]}]}],
+		%% Line 124
+		'spec' =
+		    %% Line 124
+		    [{{'fetch',2},[{'type',{124,12},'bounded_fun',[{'type',{124,12},'fun',[{'type',{124,12},'product',[{'var',{124,13},'Key'}|[{'var',{124,18},'Dict'}]]}|[{'var',{124,27},'Value'}]]}|[[{'type',{125,7},'constraint',[{'atom',{125,7},'is_subtype'}|[[{'var',{125,7},'Dict'}|[{'user_type',{125,15},'dict',[{'var',{125,20},'Key'}|[{'var',{125,25},'Value'}]]}]]]]}]]]}]}],
+		%% Line 139
+		'spec' =
+		    %% Line 139
+		    [{{'find',2},[{'type',{139,11},'bounded_fun',[{'type',{139,11},'fun',[{'type',{139,11},'product',[{'var',{139,12},'Key'}|[{'var',{139,17},'Dict'}]]}|[{'type',{139,26},'union',[{'type',{139,26},'tuple',[{'atom',{139,27},'ok'}|[{'var',{139,33},'Value'}]]}|[{'atom',{139,42},'error'}]]}]]}|[[{'type',{140,7},'constraint',[{'atom',{140,7},'is_subtype'}|[[{'var',{140,7},'Dict'}|[{'user_type',{140,15},'dict',[{'var',{140,20},'Key'}|[{'var',{140,25},'Value'}]]}]]]]}]]]}]}],
+		%% Line 151
+		'spec' =
+		    %% Line 151
+		    [{{'fetch_keys',1},[{'type',{151,17},'bounded_fun',[{'type',{151,17},'fun',[{'type',{151,17},'product',[{'var',{151,18},'Dict'}]}|[{'var',{151,27},'Keys'}]]}|[[{'type',{152,7},'constraint',[{'atom',{152,7},'is_subtype'}|[[{'var',{152,7},'Dict'}|[{'user_type',{152,15},'dict',[{'var',{152,20},'Key'}|[{'ann_type',{152,25},[{'var',{152,25},'Value'}|[{'type',{152,34},'term',[]}]]}]]}]]]]}|[{'type',{153,7},'constraint',[{'atom',{153,7},'is_subtype'}|[[{'var',{153,7},'Keys'}|[{'type',{153,15},'list',[{'var',{153,16},'Key'}]}]]]]}]]]]}]}],
+		%% Line 158
+		'spec' =
+		    %% Line 158
+		    [{{'erase',2},[{'type',{158,12},'bounded_fun',[{'type',{158,12},'fun',[{'type',{158,12},'product',[{'var',{158,13},'Key'}|[{'var',{158,18},'Dict1'}]]}|[{'var',{158,28},'Dict2'}]]}|[[{'type',{159,7},'constraint',[{'atom',{159,7},'is_subtype'}|[[{'var',{159,7},'Dict1'}|[{'user_type',{159,16},'dict',[{'var',{159,21},'Key'}|[{'var',{159,26},'Value'}]]}]]]]}|[{'type',{160,7},'constraint',[{'atom',{160,7},'is_subtype'}|[[{'var',{160,7},'Dict2'}|[{'user_type',{160,16},'dict',[{'var',{160,21},'Key'}|[{'var',{160,26},'Value'}]]}]]]]}]]]]}]}],
+		%% Line 176
+		'spec' =
+		    %% Line 176
+		    [{{'take',2},[{'type',{176,11},'bounded_fun',[{'type',{176,11},'fun',[{'type',{176,11},'product',[{'var',{176,12},'Key'}|[{'var',{176,17},'Dict'}]]}|[{'type',{176,26},'union',[{'type',{176,26},'tuple',[{'var',{176,27},'Value'}|[{'var',{176,34},'Dict1'}]]}|[{'atom',{176,43},'error'}]]}]]}|[[{'type',{177,7},'constraint',[{'atom',{177,7},'is_subtype'}|[[{'var',{177,7},'Dict'}|[{'user_type',{177,15},'dict',[{'var',{177,20},'Key'}|[{'var',{177,25},'Value'}]]}]]]]}|[{'type',{178,7},'constraint',[{'atom',{178,7},'is_subtype'}|[[{'var',{178,7},'Dict1'}|[{'user_type',{178,16},'dict',[{'var',{178,21},'Key'}|[{'var',{178,26},'Value'}]]}]]]]}|[{'type',{179,7},'constraint',[{'atom',{179,7},'is_subtype'}|[[{'var',{179,7},'Key'}|[{'type',{179,14},'term',[]}]]]]}|[{'type',{180,7},'constraint',[{'atom',{180,7},'is_subtype'}|[[{'var',{180,7},'Value'}|[{'type',{180,16},'term',[]}]]]]}]]]]]]}]}],
+		%% Line 197
+		'spec' =
+		    %% Line 197
+		    [{{'store',3},[{'type',{197,12},'bounded_fun',[{'type',{197,12},'fun',[{'type',{197,12},'product',[{'var',{197,13},'Key'}|[{'var',{197,18},'Value'}|[{'var',{197,25},'Dict1'}]]]}|[{'var',{197,35},'Dict2'}]]}|[[{'type',{198,7},'constraint',[{'atom',{198,7},'is_subtype'}|[[{'var',{198,7},'Dict1'}|[{'user_type',{198,16},'dict',[{'var',{198,21},'Key'}|[{'var',{198,26},'Value'}]]}]]]]}|[{'type',{199,7},'constraint',[{'atom',{199,7},'is_subtype'}|[[{'var',{199,7},'Dict2'}|[{'user_type',{199,16},'dict',[{'var',{199,21},'Key'}|[{'var',{199,26},'Value'}]]}]]]]}]]]]}]}],
+		%% Line 215
+		'spec' =
+		    %% Line 215
+		    [{{'append',3},[{'type',{215,13},'bounded_fun',[{'type',{215,13},'fun',[{'type',{215,13},'product',[{'var',{215,14},'Key'}|[{'var',{215,19},'Value'}|[{'var',{215,26},'Dict1'}]]]}|[{'var',{215,36},'Dict2'}]]}|[[{'type',{216,7},'constraint',[{'atom',{216,7},'is_subtype'}|[[{'var',{216,7},'Dict1'}|[{'user_type',{216,16},'dict',[{'var',{216,21},'Key'}|[{'var',{216,26},'Value'}]]}]]]]}|[{'type',{217,7},'constraint',[{'atom',{217,7},'is_subtype'}|[[{'var',{217,7},'Dict2'}|[{'user_type',{217,16},'dict',[{'var',{217,21},'Key'}|[{'var',{217,26},'Value'}]]}]]]]}]]]]}]}],
+		%% Line 233
+		'spec' =
+		    %% Line 233
+		    [{{'append_list',3},[{'type',{233,18},'bounded_fun',[{'type',{233,18},'fun',[{'type',{233,18},'product',[{'var',{233,19},'Key'}|[{'var',{233,24},'ValList'}|[{'var',{233,33},'Dict1'}]]]}|[{'var',{233,43},'Dict2'}]]}|[[{'type',{234,7},'constraint',[{'atom',{234,7},'is_subtype'}|[[{'var',{234,7},'Dict1'}|[{'user_type',{234,16},'dict',[{'var',{234,21},'Key'}|[{'var',{234,26},'Value'}]]}]]]]}|[{'type',{235,7},'constraint',[{'atom',{235,7},'is_subtype'}|[[{'var',{235,7},'Dict2'}|[{'user_type',{235,16},'dict',[{'var',{235,21},'Key'}|[{'var',{235,26},'Value'}]]}]]]]}|[{'type',{236,7},'constraint',[{'atom',{236,7},'is_subtype'}|[[{'var',{236,7},'ValList'}|[{'type',{236,18},'list',[{'var',{236,19},'Value'}]}]]]]}]]]]]}]}],
+		%% Line 306
+		'spec' =
+		    %% Line 306
+		    [{{'update',3},[{'type',{306,13},'bounded_fun',[{'type',{306,13},'fun',[{'type',{306,13},'product',[{'var',{306,14},'Key'}|[{'var',{306,19},'Fun'}|[{'var',{306,24},'Dict1'}]]]}|[{'var',{306,34},'Dict2'}]]}|[[{'type',{307,7},'constraint',[{'atom',{307,7},'is_subtype'}|[[{'var',{307,7},'Dict1'}|[{'user_type',{307,16},'dict',[{'var',{307,21},'Key'}|[{'var',{307,26},'Value'}]]}]]]]}|[{'type',{308,7},'constraint',[{'atom',{308,7},'is_subtype'}|[[{'var',{308,7},'Dict2'}|[{'user_type',{308,16},'dict',[{'var',{308,21},'Key'}|[{'var',{308,26},'Value'}]]}]]]]}|[{'type',{309,7},'constraint',[{'atom',{309,7},'is_subtype'}|[[{'var',{309,7},'Fun'}|[{'type',{309,18},'fun',[{'type',{309,18},'product',[{'ann_type',{309,19},[{'var',{309,19},'Value1'}|[{'var',{309,29},'Value'}]]}]}|[{'ann_type',{309,39},[{'var',{309,39},'Value2'}|[{'var',{309,49},'Value'}]]}]]}]]]]}]]]]]}]}],
+		%% Line 328
+		'spec' =
+		    %% Line 328
+		    [{{'update',4},[{'type',{328,13},'bounded_fun',[{'type',{328,13},'fun',[{'type',{328,13},'product',[{'var',{328,14},'Key'}|[{'var',{328,19},'Fun'}|[{'var',{328,24},'Initial'}|[{'var',{328,33},'Dict1'}]]]]}|[{'var',{328,43},'Dict2'}]]}|[[{'type',{329,7},'constraint',[{'atom',{329,7},'is_subtype'}|[[{'var',{329,7},'Dict1'}|[{'user_type',{329,16},'dict',[{'var',{329,21},'Key'}|[{'var',{329,26},'Value'}]]}]]]]}|[{'type',{330,7},'constraint',[{'atom',{330,7},'is_subtype'}|[[{'var',{330,7},'Dict2'}|[{'user_type',{330,16},'dict',[{'var',{330,21},'Key'}|[{'var',{330,26},'Value'}]]}]]]]}|[{'type',{331,7},'constraint',[{'atom',{331,7},'is_subtype'}|[[{'var',{331,7},'Fun'}|[{'type',{331,18},'fun',[{'type',{331,18},'product',[{'ann_type',{331,19},[{'var',{331,19},'Value1'}|[{'var',{331,29},'Value'}]]}]}|[{'ann_type',{331,39},[{'var',{331,39},'Value2'}|[{'var',{331,49},'Value'}]]}]]}]]]]}|[{'type',{332,7},'constraint',[{'atom',{332,7},'is_subtype'}|[[{'var',{332,7},'Initial'}|[{'var',{332,18},'Value'}]]]]}]]]]]]}]}],
+		%% Line 347
+		'spec' =
+		    %% Line 347
+		    [{{'update_counter',3},[{'type',{347,21},'bounded_fun',[{'type',{347,21},'fun',[{'type',{347,21},'product',[{'var',{347,22},'Key'}|[{'var',{347,27},'Increment'}|[{'var',{347,38},'Dict1'}]]]}|[{'var',{347,48},'Dict2'}]]}|[[{'type',{348,7},'constraint',[{'atom',{348,7},'is_subtype'}|[[{'var',{348,7},'Dict1'}|[{'user_type',{348,16},'dict',[{'var',{348,21},'Key'}|[{'var',{348,26},'Value'}]]}]]]]}|[{'type',{349,7},'constraint',[{'atom',{349,7},'is_subtype'}|[[{'var',{349,7},'Dict2'}|[{'user_type',{349,16},'dict',[{'var',{349,21},'Key'}|[{'var',{349,26},'Value'}]]}]]]]}|[{'type',{350,7},'constraint',[{'atom',{350,7},'is_subtype'}|[[{'var',{350,7},'Increment'}|[{'type',{350,20},'number',[]}]]]]}]]]]]}]}],
+		%% Line 358
+		'dialyzer' =
+		    %% Line 358
+		    [{'no_improper_lists',{'counter_bkt',3}}],
+		%% Line 367
+		'spec' =
+		    %% Line 367
+		    [{{'fold',3},[{'type',{367,11},'bounded_fun',[{'type',{367,11},'fun',[{'type',{367,11},'product',[{'var',{367,12},'Fun'}|[{'var',{367,17},'Acc0'}|[{'var',{367,23},'Dict'}]]]}|[{'var',{367,32},'Acc1'}]]}|[[{'type',{368,7},'constraint',[{'atom',{368,7},'is_subtype'}|[[{'var',{368,7},'Fun'}|[{'type',{368,18},'fun',[{'type',{368,18},'product',[{'var',{368,19},'Key'}|[{'var',{368,24},'Value'}|[{'var',{368,31},'AccIn'}]]]}|[{'var',{368,41},'AccOut'}]]}]]]]}|[{'type',{369,7},'constraint',[{'atom',{369,7},'is_subtype'}|[[{'var',{369,7},'Dict'}|[{'user_type',{369,15},'dict',[{'var',{369,20},'Key'}|[{'var',{369,25},'Value'}]]}]]]]}|[{'type',{370,7},'constraint',[{'atom',{370,7},'is_subtype'}|[[{'var',{370,7},'Acc0'}|[{'var',{370,15},'Acc'}]]]]}|[{'type',{371,7},'constraint',[{'atom',{371,7},'is_subtype'}|[[{'var',{371,7},'Acc1'}|[{'var',{371,15},'Acc'}]]]]}|[{'type',{372,7},'constraint',[{'atom',{372,7},'is_subtype'}|[[{'var',{372,7},'AccIn'}|[{'var',{372,16},'Acc'}]]]]}|[{'type',{373,7},'constraint',[{'atom',{373,7},'is_subtype'}|[[{'var',{373,7},'AccOut'}|[{'var',{373,17},'Acc'}]]]]}]]]]]]]]}]}],
+		%% Line 379
+		'spec' =
+		    %% Line 379
+		    [{{'map',2},[{'type',{379,10},'bounded_fun',[{'type',{379,10},'fun',[{'type',{379,10},'product',[{'var',{379,11},'Fun'}|[{'var',{379,16},'Dict1'}]]}|[{'var',{379,26},'Dict2'}]]}|[[{'type',{380,7},'constraint',[{'atom',{380,7},'is_subtype'}|[[{'var',{380,7},'Fun'}|[{'type',{380,18},'fun',[{'type',{380,18},'product',[{'var',{380,19},'Key'}|[{'var',{380,24},'Value1'}]]}|[{'var',{380,35},'Value2'}]]}]]]]}|[{'type',{381,7},'constraint',[{'atom',{381,7},'is_subtype'}|[[{'var',{381,7},'Dict1'}|[{'user_type',{381,16},'dict',[{'var',{381,21},'Key'}|[{'var',{381,26},'Value1'}]]}]]]]}|[{'type',{382,7},'constraint',[{'atom',{382,7},'is_subtype'}|[[{'var',{382,7},'Dict2'}|[{'user_type',{382,16},'dict',[{'var',{382,21},'Key'}|[{'var',{382,26},'Value2'}]]}]]]]}]]]]]}]}],
+		%% Line 386
+		'spec' =
+		    %% Line 386
+		    [{{'filter',2},[{'type',{386,13},'bounded_fun',[{'type',{386,13},'fun',[{'type',{386,13},'product',[{'var',{386,14},'Pred'}|[{'var',{386,20},'Dict1'}]]}|[{'var',{386,30},'Dict2'}]]}|[[{'type',{387,7},'constraint',[{'atom',{387,7},'is_subtype'}|[[{'var',{387,7},'Pred'}|[{'type',{387,19},'fun',[{'type',{387,19},'product',[{'var',{387,20},'Key'}|[{'var',{387,26},'Value'}]]}|[{'type',{387,36},'boolean',[]}]]}]]]]}|[{'type',{388,7},'constraint',[{'atom',{388,7},'is_subtype'}|[[{'var',{388,7},'Dict1'}|[{'user_type',{388,16},'dict',[{'var',{388,21},'Key'}|[{'var',{388,26},'Value'}]]}]]]]}|[{'type',{389,7},'constraint',[{'atom',{389,7},'is_subtype'}|[[{'var',{389,7},'Dict2'}|[{'user_type',{389,16},'dict',[{'var',{389,21},'Key'}|[{'var',{389,26},'Value'}]]}]]]]}]]]]]}]}],
+		%% Line 393
+		'spec' =
+		    %% Line 393
+		    [{{'merge',3},[{'type',{393,12},'bounded_fun',[{'type',{393,12},'fun',[{'type',{393,12},'product',[{'var',{393,13},'Fun'}|[{'var',{393,18},'Dict1'}|[{'var',{393,25},'Dict2'}]]]}|[{'var',{393,35},'Dict3'}]]}|[[{'type',{394,7},'constraint',[{'atom',{394,7},'is_subtype'}|[[{'var',{394,7},'Fun'}|[{'type',{394,18},'fun',[{'type',{394,18},'product',[{'var',{394,19},'Key'}|[{'var',{394,24},'Value1'}|[{'var',{394,32},'Value2'}]]]}|[{'var',{394,43},'Value'}]]}]]]]}|[{'type',{395,7},'constraint',[{'atom',{395,7},'is_subtype'}|[[{'var',{395,7},'Dict1'}|[{'user_type',{395,16},'dict',[{'var',{395,21},'Key'}|[{'var',{395,26},'Value1'}]]}]]]]}|[{'type',{396,7},'constraint',[{'atom',{396,7},'is_subtype'}|[[{'var',{396,7},'Dict2'}|[{'user_type',{396,16},'dict',[{'var',{396,21},'Key'}|[{'var',{396,26},'Value2'}]]}]]]]}|[{'type',{397,7},'constraint',[{'atom',{397,7},'is_subtype'}|[[{'var',{397,7},'Dict3'}|[{'user_type',{397,16},'dict',[{'var',{397,21},'Key'}|[{'var',{397,26},'Value'}]]}]]]]}]]]]]]}]}]]
+'new'/0 =
+    %% Line 84
+    ( fun () ->
+	  let <Empty> =
+	      apply %% Line 85
+		    'mk_seg'/1
+		  (%% Line 85
+		   16)
+	  in  %% Line 86
+	      {'dict',0,16,16,8,80,48,Empty,{Empty}}
+      -| [{'function',{'new',0}}] )
+'is_key'/2 =
+    %% Line 91
+    ( fun (_0,_1) ->
+	  let <Slot> =
+	      apply %% Line 92
+		    'get_slot'/2
+		  (_1, _0)
+	  in  let <Bkt> =
+		  apply %% Line 93
+			'get_bucket'/2
+		      (_1, %% Line 93
+			   Slot)
+	      in  %% Line 94
+		  apply 'find_key'/2
+		      (_0, Bkt)
+      -| [{'function',{'is_key',2}}] )
+'find_key'/2 =
+    %% Line 96
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <K,[[_4|_X_Val]|_5]>
+		  when call 'erlang':'=:='
+			(_4,
+			 K) ->
+		  'true'
+	      %% Line 97
+	      <K,[_6|Bkt]> when 'true' ->
+		  apply 'find_key'/2
+		      (K, Bkt)
+	      %% Line 98
+	      <_7,[]> when 'true' ->
+		  'false'
+	      ( <_3,_2> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_3,_2}
+			     -| [{'function',{'find_key',2}}] ))
+		      -| [{'function',{'find_key',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'find_key',2}}] )
+      -| [{'function',{'find_key',2}}] )
+'to_list'/1 =
+    %% Line 104
+    ( fun (_0) ->
+	  let <_7> =
+	      fun (_3,_2,_1) ->
+		  %% Line 105
+		  [{_3,_2}|_1]
+	  in  %% Line 105
+	      apply 'fold'/3
+		  (_7, [], ( _0
+			     -| [{'function',{'to_list',1}}] ))
+      -| [{'function',{'to_list',1}}] )
+'from_list'/1 =
+    %% Line 111
+    ( fun (_0) ->
+	  let <_6> =
+	      fun (_3,_2) ->
+		  %% Line 112
+		  case <_3,_2> of
+		    <{K,V},D> when 'true' ->
+			apply 'store'/3
+			    (K, V, D)
+		    ( <_5,_4> when 'true' ->
+			  primop 'match_fail'
+			      ({'function_clause',_5,_4})
+		      -| ['compiler_generated'] )
+		  end
+	  in  let <_1> =
+		  apply %% Line 112
+			'new'/0
+		      ()
+	      in  %% Line 112
+		  call 'lists':'foldl'
+		      (_6, _1, ( _0
+				 -| [{'function',{'from_list',1}}] ))
+      -| [{'function',{'from_list',1}}] )
+'size'/1 =
+    %% Line 117
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'size',1}}] ) of
+	      <{'dict',N,_4,_5,_6,_7,_8,_9,_10}>
+		  when let <_1> =
+			call 'erlang':'is_integer'
+			    (N)
+		    in  let <_2> =
+			    call 'erlang':'>='
+				(N, 0)
+			in  call 'erlang':'and'
+				(_1, _2) ->
+		  N
+	      ( <_3> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_3}
+			     -| [{'function',{'size',1}}] ))
+		      -| [{'function',{'size',1}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'size',1}}] )
+      -| [{'function',{'size',1}}] )
+'is_empty'/1 =
+    %% Line 122
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'is_empty',1}}] ) of
+	      <{'dict',N,_2,_3,_4,_5,_6,_7,_8}> when 'true' ->
+		  call 'erlang':'=:='
+		      (N, 0)
+	      ( <_1> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_1}
+			     -| [{'function',{'is_empty',1}}] ))
+		      -| [{'function',{'is_empty',1}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'is_empty',1}}] )
+      -| [{'function',{'is_empty',1}}] )
+'fetch'/2 =
+    %% Line 127
+    ( fun (_0,_1) ->
+	  let <Slot> =
+	      apply %% Line 128
+		    'get_slot'/2
+		  (_1, _0)
+	  in  let <Bkt> =
+		  apply %% Line 129
+			'get_bucket'/2
+		      (_1, %% Line 129
+			   Slot)
+	      in  %% Line 130
+		  try
+		      apply 'fetch_val'/2
+			  (_0, Bkt)
+		  of <_4> ->
+		      _4
+		  catch <_7,_6,_5> ->
+		      %% Line 132
+		      case <_7,_6,_5> of
+			<( 'throw'
+			   -| ['compiler_generated'] ),( 'badarg'
+							 -| ['compiler_generated'] ),_10> when 'true' ->
+			    call 'erlang':'error'
+				('badarg', [_0|[_1|[]]])
+			( <_11,_12,_13> when 'true' ->
+			      primop 'raise'
+				  (_13, _12)
+			  -| ['compiler_generated'] )
+		      end
+      -| [{'function',{'fetch',2}}] )
+'fetch_val'/2 =
+    %% Line 135
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <K,[[_4|Val]|_5]>
+		  when call 'erlang':'=:='
+			(_4,
+			 K) ->
+		  Val
+	      %% Line 136
+	      <K,[_6|Bkt]> when 'true' ->
+		  apply 'fetch_val'/2
+		      (K, Bkt)
+	      %% Line 137
+	      <_7,[]> when 'true' ->
+		  call 'erlang':'throw'
+		      ('badarg')
+	      ( <_3,_2> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_3,_2}
+			     -| [{'function',{'fetch_val',2}}] ))
+		      -| [{'function',{'fetch_val',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'fetch_val',2}}] )
+      -| [{'function',{'fetch_val',2}}] )
+'find'/2 =
+    %% Line 142
+    ( fun (_0,_1) ->
+	  let <Slot> =
+	      apply %% Line 143
+		    'get_slot'/2
+		  (_1, _0)
+	  in  let <Bkt> =
+		  apply %% Line 144
+			'get_bucket'/2
+		      (_1, %% Line 144
+			   Slot)
+	      in  %% Line 145
+		  apply 'find_val'/2
+		      (_0, Bkt)
+      -| [{'function',{'find',2}}] )
+'find_val'/2 =
+    %% Line 147
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <K,[[_4|Val]|_5]>
+		  when call 'erlang':'=:='
+			(_4,
+			 K) ->
+		  {'ok',Val}
+	      %% Line 148
+	      <K,[_6|Bkt]> when 'true' ->
+		  apply 'find_val'/2
+		      (K, Bkt)
+	      %% Line 149
+	      <_7,[]> when 'true' ->
+		  'error'
+	      ( <_3,_2> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_3,_2}
+			     -| [{'function',{'find_val',2}}] ))
+		      -| [{'function',{'find_val',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'find_val',2}}] )
+      -| [{'function',{'find_val',2}}] )
+'fetch_keys'/1 =
+    %% Line 155
+    ( fun (_0) ->
+	  let <_7> =
+	      fun (_3,_2,_1) ->
+		  %% Line 156
+		  [_3|_1]
+	  in  %% Line 156
+	      apply 'fold'/3
+		  (_7, [], ( _0
+			     -| [{'function',{'fetch_keys',1}}] ))
+      -| [{'function',{'fetch_keys',1}}] )
+'erase'/2 =
+    %% Line 164
+    ( fun (_0,_1) ->
+	  let <Slot> =
+	      apply %% Line 165
+		    'get_slot'/2
+		  (_1, _0)
+	  in  let <_5> =
+		  fun (_3) ->
+		      %% Line 166
+		      apply 'erase_key'/2
+			  (_0, _3)
+	      in  %% Line 166
+		  case apply 'on_bucket'/3
+			   (_5, _1, %% Line 167
+				    Slot) of
+		    <{D1,Dc}> when 'true' ->
+			%% Line 168
+			apply 'maybe_contract'/2
+			    (D1, Dc)
+		    ( <_6> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_6})
+		      -| ['compiler_generated'] )
+		  end
+      -| [{'function',{'erase',2}}] )
+'erase_key'/2 =
+    %% Line 170
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Key,[[_5|_X_Val]|Bkt]>
+		  when call 'erlang':'=:='
+			(_5,
+			 Key) ->
+		  {Bkt,1}
+	      %% Line 171
+	      <Key,[E|Bkt0]> when 'true' ->
+		  %% Line 172
+		  case apply 'erase_key'/2
+			   (Key, Bkt0) of
+		    <{Bkt1,Dc}> when 'true' ->
+			%% Line 173
+			{[E|Bkt1],Dc}
+		    ( <_2> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_2})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 174
+	      <_6,[]> when 'true' ->
+		  {[],0}
+	      ( <_4,_3> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_4,_3}
+			     -| [{'function',{'erase_key',2}}] ))
+		      -| [{'function',{'erase_key',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'erase_key',2}}] )
+      -| [{'function',{'erase_key',2}}] )
+'take'/2 =
+    %% Line 182
+    ( fun (_0,_1) ->
+	  let <Slot> =
+	      apply %% Line 183
+		    'get_slot'/2
+		  (_1, _0)
+	  in  let <_5> =
+		  fun (_3) ->
+		      %% Line 184
+		      apply 'take_key'/2
+			  (_0, _3)
+	      in  %% Line 184
+		  case apply 'on_bucket'/3
+			   (_5, _1, Slot) of
+		    %% Line 185
+		    <{D1,{Value,Dc}}> when 'true' ->
+			let <_6> =
+			    apply %% Line 186
+				  'maybe_contract'/2
+				(%% Line 186
+				 D1, %% Line 186
+				     Dc)
+			in  %% Line 186
+			    {Value,_6}
+		    %% Line 187
+		    <{_10,'error'}> when 'true' ->
+			'error'
+		    ( <_7> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_7})
+		      -| ['compiler_generated'] )
+		  end
+      -| [{'function',{'take',2}}] )
+'take_key'/2 =
+    %% Line 190
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Key,[[_5|Val]|Bkt]>
+		  when call 'erlang':'=:='
+			(_5,
+			 Key) ->
+		  %% Line 191
+		  {Bkt,{Val,1}}
+	      %% Line 192
+	      <Key,[E|Bkt0]> when 'true' ->
+		  %% Line 193
+		  case apply 'take_key'/2
+			   (Key, Bkt0) of
+		    <{Bkt1,Res}> when 'true' ->
+			%% Line 194
+			{[E|Bkt1],Res}
+		    ( <_2> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_2})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 195
+	      <_6,[]> when 'true' ->
+		  {[],'error'}
+	      ( <_4,_3> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_4,_3}
+			     -| [{'function',{'take_key',2}}] ))
+		      -| [{'function',{'take_key',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'take_key',2}}] )
+      -| [{'function',{'take_key',2}}] )
+'store'/3 =
+    %% Line 201
+    ( fun (_0,_1,_2) ->
+	  let <Slot> =
+	      apply %% Line 202
+		    'get_slot'/2
+		  (_2, _0)
+	  in  let <_6> =
+		  fun (_4) ->
+		      %% Line 203
+		      apply 'store_bkt_val'/3
+			  (_0, _1, _4)
+	      in  %% Line 203
+		  case apply 'on_bucket'/3
+			   (_6, _2, %% Line 204
+				    Slot) of
+		    <{D1,Ic}> when 'true' ->
+			%% Line 205
+			apply 'maybe_expand'/2
+			    (D1, Ic)
+		    ( <_7> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_7})
+		      -| ['compiler_generated'] )
+		  end
+      -| [{'function',{'store',3}}] )
+'store_bkt_val'/3 =
+    %% Line 209
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Key,New,[[_7|_X_Old]|Bkt]>
+		  when call 'erlang':'=:='
+			(_7,
+			 Key) ->
+		  {[[Key|New]|Bkt],0}
+	      %% Line 210
+	      <Key,New,[Other|Bkt0]> when 'true' ->
+		  %% Line 211
+		  case apply 'store_bkt_val'/3
+			   (Key, New, Bkt0) of
+		    <{Bkt1,Ic}> when 'true' ->
+			%% Line 212
+			{[Other|Bkt1],Ic}
+		    ( <_3> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_3})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 213
+	      <Key,New,[]> when 'true' ->
+		  {[[Key|New]|[]],1}
+	      ( <_6,_5,_4> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_6,_5,_4}
+			     -| [{'function',{'store_bkt_val',3}}] ))
+		      -| [{'function',{'store_bkt_val',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'store_bkt_val',3}}] )
+      -| [{'function',{'store_bkt_val',3}}] )
+'append'/3 =
+    %% Line 219
+    ( fun (_0,_1,_2) ->
+	  let <Slot> =
+	      apply %% Line 220
+		    'get_slot'/2
+		  (_2, _0)
+	  in  let <_6> =
+		  fun (_4) ->
+		      %% Line 221
+		      apply 'append_bkt'/3
+			  (_0, _1, _4)
+	      in  %% Line 221
+		  case apply 'on_bucket'/3
+			   (_6, _2, %% Line 222
+				    Slot) of
+		    <{D1,Ic}> when 'true' ->
+			%% Line 223
+			apply 'maybe_expand'/2
+			    (D1, Ic)
+		    ( <_7> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_7})
+		      -| ['compiler_generated'] )
+		  end
+      -| [{'function',{'append',3}}] )
+'append_bkt'/3 =
+    %% Line 227
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Key,Val,[[_8|Bag]|Bkt]>
+		  when call 'erlang':'=:='
+			(_8,
+			 Key) ->
+		  let <_3> =
+		      call 'erlang':'++'
+			  (Bag, [Val|[]])
+		  in  {[[Key|_3]|Bkt],0}
+	      %% Line 228
+	      <Key,Val,[Other|Bkt0]> when 'true' ->
+		  %% Line 229
+		  case apply 'append_bkt'/3
+			   (Key, Val, Bkt0) of
+		    <{Bkt1,Ic}> when 'true' ->
+			%% Line 230
+			{[Other|Bkt1],Ic}
+		    ( <_4> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_4})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 231
+	      <Key,Val,[]> when 'true' ->
+		  {[[Key|[Val|[]]]|[]],1}
+	      ( <_7,_6,_5> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_7,_6,_5}
+			     -| [{'function',{'append_bkt',3}}] ))
+		      -| [{'function',{'append_bkt',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'append_bkt',3}}] )
+      -| [{'function',{'append_bkt',3}}] )
+'append_list'/3 =
+    %% Line 238
+    ( fun (_0,_1,_2) ->
+	  let <Slot> =
+	      apply %% Line 239
+		    'get_slot'/2
+		  (_2, _0)
+	  in  let <_6> =
+		  fun (_4) ->
+		      %% Line 240
+		      apply 'app_list_bkt'/3
+			  (_0, _1, _4)
+	      in  %% Line 240
+		  case apply 'on_bucket'/3
+			   (_6, _2, %% Line 241
+				    Slot) of
+		    <{D1,Ic}> when 'true' ->
+			%% Line 242
+			apply 'maybe_expand'/2
+			    (D1, Ic)
+		    ( <_7> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_7})
+		      -| ['compiler_generated'] )
+		  end
+      -| [{'function',{'append_list',3}}] )
+'app_list_bkt'/3 =
+    %% Line 246
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Key,L,[[_8|Bag]|Bkt]>
+		  when call 'erlang':'=:='
+			(_8,
+			 Key) ->
+		  let <_3> =
+		      call 'erlang':'++'
+			  (Bag, L)
+		  in  {[[Key|_3]|Bkt],0}
+	      %% Line 247
+	      <Key,L,[Other|Bkt0]> when 'true' ->
+		  %% Line 248
+		  case apply 'app_list_bkt'/3
+			   (Key, L, Bkt0) of
+		    <{Bkt1,Ic}> when 'true' ->
+			%% Line 249
+			{[Other|Bkt1],Ic}
+		    ( <_4> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_4})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 250
+	      <Key,L,[]> when 'true' ->
+		  {[[Key|L]|[]],1}
+	      ( <_7,_6,_5> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_7,_6,_5}
+			     -| [{'function',{'app_list_bkt',3}}] ))
+		      -| [{'function',{'app_list_bkt',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'app_list_bkt',3}}] )
+      -| [{'function',{'app_list_bkt',3}}] )
+'update'/3 =
+    %% Line 311
+    ( fun (_0,_1,_2) ->
+	  let <Slot> =
+	      apply %% Line 312
+		    'get_slot'/2
+		  (_2, _0)
+	  in  %% Line 313
+	      try
+		  let <_6> =
+		      fun (_4) ->
+			  apply 'update_bkt'/3
+			      (_0, _1, _4)
+		  in  apply 'on_bucket'/3
+			  (_6, _2, Slot)
+	      of <_7> ->
+		  case _7 of
+		    %% Line 314
+		    <{D1,_X_Uv}> when 'true' ->
+			D1
+		    ( <_8> when 'true' ->
+			  primop 'match_fail'
+			      ({'try_clause',_8})
+		      -| ['compiler_generated'] )
+		  end
+	      catch <_11,_10,_9> ->
+		  %% Line 316
+		  case <_11,_10,_9> of
+		    <( 'throw'
+		       -| ['compiler_generated'] ),( 'badarg'
+						     -| ['compiler_generated'] ),_15> when 'true' ->
+			call 'erlang':'error'
+			    ('badarg', [_0|[_1|[_2|[]]]])
+		    ( <_17,_18,_19> when 'true' ->
+			  primop 'raise'
+			      (_19, _18)
+		      -| ['compiler_generated'] )
+		  end
+      -| [{'function',{'update',3}}] )
+'update_bkt'/3 =
+    %% Line 319
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Key,F,[[_8|Val]|Bkt]>
+		  when call 'erlang':'=:='
+			(_8,
+			 Key) ->
+		  let <Upd> =
+		      apply %% Line 320
+			    F
+			  (%% Line 320
+			   Val)
+		  in  %% Line 321
+		      {[[Key|Upd]|Bkt],Upd}
+	      %% Line 322
+	      <Key,F,[Other|Bkt0]> when 'true' ->
+		  %% Line 323
+		  case apply 'update_bkt'/3
+			   (Key, F, Bkt0) of
+		    <{Bkt1,Upd}> when 'true' ->
+			%% Line 324
+			{[Other|Bkt1],Upd}
+		    ( <_4> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_4})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 325
+	      <_X_Key,_X_F,[]> when 'true' ->
+		  %% Line 326
+		  call 'erlang':'throw'
+		      ('badarg')
+	      ( <_7,_6,_5> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_7,_6,_5}
+			     -| [{'function',{'update_bkt',3}}] ))
+		      -| [{'function',{'update_bkt',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'update_bkt',3}}] )
+      -| [{'function',{'update_bkt',3}}] )
+'update'/4 =
+    %% Line 334
+    ( fun (_0,_1,_2,_3) ->
+	  let <Slot> =
+	      apply %% Line 335
+		    'get_slot'/2
+		  (_3, _0)
+	  in  let <_7> =
+		  fun (_5) ->
+		      %% Line 336
+		      apply 'update_bkt'/4
+			  (_0, _1, _2, _5)
+	      in  %% Line 336
+		  case apply 'on_bucket'/3
+			   (_7, _3, %% Line 337
+				    Slot) of
+		    <{D1,Ic}> when 'true' ->
+			%% Line 338
+			apply 'maybe_expand'/2
+			    (D1, Ic)
+		    ( <_8> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_8})
+		      -| ['compiler_generated'] )
+		  end
+      -| [{'function',{'update',4}}] )
+'update_bkt'/4 =
+    %% Line 340
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <Key,F,_11,[[_12|Val]|Bkt]>
+		  when call 'erlang':'=:='
+			(_12,
+			 Key) ->
+		  let <_4> =
+		      apply %% Line 341
+			    F
+			  (%% Line 341
+			   Val)
+		  in  %% Line 341
+		      {[[Key|_4]|Bkt],0}
+	      %% Line 342
+	      <Key,F,I,[Other|Bkt0]> when 'true' ->
+		  %% Line 343
+		  case apply 'update_bkt'/4
+			   (Key, F, I, Bkt0) of
+		    <{Bkt1,Ic}> when 'true' ->
+			%% Line 344
+			{[Other|Bkt1],Ic}
+		    ( <_5> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_5})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 345
+	      <Key,F,I,[]>
+		  when try
+			let <_6> =
+			    call 'erlang':'is_function'
+				(F, 1)
+			in  ( call 'erlang':'=:='
+				  (_6, 'true')
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  {[[Key|I]|[]],1}
+	      ( <_10,_9,_8,_7> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_10,_9,_8,_7}
+			     -| [{'function',{'update_bkt',4}}] ))
+		      -| [{'function',{'update_bkt',4}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'update_bkt',4}}] )
+      -| [{'function',{'update_bkt',4}}] )
+'update_counter'/3 =
+    %% Line 352
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Key,Incr,D0>
+		  when call 'erlang':'is_number'
+			(Incr) ->
+		  let <Slot> =
+		      apply %% Line 353
+			    'get_slot'/2
+			  (%% Line 353
+			   D0, %% Line 353
+			       Key)
+		  in  let <_6> =
+			  fun (_4) ->
+			      %% Line 354
+			      apply 'counter_bkt'/3
+				  (Key, Incr, _4)
+		      in  %% Line 354
+			  case apply 'on_bucket'/3
+				   (_6, %% Line 355
+					D0, %% Line 355
+					    Slot) of
+			    <{D1,Ic}> when 'true' ->
+				%% Line 356
+				apply 'maybe_expand'/2
+				    (D1, Ic)
+			    ( <_7> when 'true' ->
+				  primop 'match_fail'
+				      ({'badmatch',_7})
+			      -| ['compiler_generated'] )
+			  end
+	      ( <_10,_9,_8> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_10,_9,_8}
+			     -| [{'function',{'update_counter',3}}] ))
+		      -| [{'function',{'update_counter',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'update_counter',3}}] )
+      -| [{'function',{'update_counter',3}}] )
+'counter_bkt'/3 =
+    %% Line 360
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Key,I,[[_8|Val]|Bkt]>
+		  when call 'erlang':'=:='
+			(_8,
+			 Key) ->
+		  let <_3> =
+		      call %% Line 361
+			   'erlang':%% Line 361
+				    '+'
+			  (%% Line 361
+			   Val, %% Line 361
+				I)
+		  in  %% Line 361
+		      {[[Key|_3]|Bkt],0}
+	      %% Line 362
+	      <Key,I,[Other|Bkt0]> when 'true' ->
+		  %% Line 363
+		  case apply 'counter_bkt'/3
+			   (Key, I, Bkt0) of
+		    <{Bkt1,Ic}> when 'true' ->
+			%% Line 364
+			{[Other|Bkt1],Ic}
+		    ( <_4> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_4})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 365
+	      <Key,I,[]> when 'true' ->
+		  {[[Key|I]|[]],1}
+	      ( <_7,_6,_5> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_7,_6,_5}
+			     -| [{'function',{'counter_bkt',3}}] ))
+		      -| [{'function',{'counter_bkt',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'counter_bkt',3}}] )
+      -| [{'function',{'counter_bkt',3}}] )
+'fold'/3 =
+    %% Line 377
+    ( fun (_0,_1,_2) ->
+	  apply 'fold_dict'/3
+	      (_0, _1, _2)
+      -| [{'function',{'fold',3}}] )
+'map'/2 =
+    %% Line 384
+    ( fun (_0,_1) ->
+	  apply 'map_dict'/2
+	      (_0, _1)
+      -| [{'function',{'map',2}}] )
+'filter'/2 =
+    %% Line 391
+    ( fun (_0,_1) ->
+	  apply 'filter_dict'/2
+	      (_0, _1)
+      -| [{'function',{'filter',2}}] )
+'merge'/3 =
+    %% Line 399
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <F,D1 = {'dict',_39,_40,_41,_42,_43,_44,_45,_46},D2 = {'dict',_47,_48,_49,_50,_51,_52,_53,_54}>
+		  when ( try
+			  let <_14> =
+			      call 'erlang':'element'
+				  (2, D1)
+			  in  let <_13> =
+				  call 'erlang':'element'
+				      (2, D2)
+			      in  let <_15> =
+				      call 'erlang':'<'
+					  (_14, _13)
+				  in  ( call ( 'erlang'
+					       -| ['compiler_generated'] ):( 'and'
+									     -| ['compiler_generated'] )
+					    (( 'true'
+					       -| ['compiler_generated'] ), _15)
+					-| ['compiler_generated'] )
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false'
+		      -| ['compiler_generated'] ) ->
+		  let <_25> =
+		      fun (_21,_20,_19) ->
+			  let <_18> =
+			      fun (_16) ->
+				  %% Line 401
+				  apply F
+				      (_21, _20, _16)
+			  in  %% Line 401
+			      apply 'update'/4
+				  (_21, _18, _20, _19)
+		  in  %% Line 400
+		      apply 'fold_dict'/3
+			  (_25, %% Line 402
+				D2, %% Line 402
+				    D1)
+	      %% Line 403
+	      <F,D1,D2> when 'true' ->
+		  let <_35> =
+		      fun (_31,_30,_29) ->
+			  let <_28> =
+			      fun (_26) ->
+				  %% Line 405
+				  apply F
+				      (_31, _26, _30)
+			  in  %% Line 405
+			      apply 'update'/4
+				  (_31, _28, _30, _29)
+		  in  %% Line 404
+		      apply 'fold_dict'/3
+			  (_35, %% Line 406
+				D1, %% Line 406
+				    D2)
+	    end
+	    -| [{'function',{'merge',3}}] )
+      -| [{'function',{'merge',3}}] )
+'get_slot'/2 =
+    %% Line 413
+    ( fun (_0,_1) ->
+	  %% Line 414
+	  case _0 of
+	    ( <( {'dict',_15,_16,_rec0,_17,_18,_19,_20,_21}
+		 -| ['compiler_generated'] )> when 'true' ->
+		  let <H> =
+		      call 'erlang':'phash'
+			  (_1, _rec0)
+		  in  %% Line 415
+		      case <> of
+			%% Line 416
+			<>
+			    when ( try
+				    ( let <_7> =
+					  case ( call ( 'erlang'
+							-| ['compiler_generated'] ):( 'is_record'
+										      -| ['compiler_generated'] )
+						     (_0, ( 'dict'
+							    -| ['compiler_generated'] ), ( 9
+											   -| ['compiler_generated'] ))
+						 -| ['compiler_generated'] ) of
+					    ( <( 'true'
+						 -| ['compiler_generated'] )> when 'true' ->
+						  ( 'true'
+						    -| ['compiler_generated'] )
+					      -| ['compiler_generated'] )
+					    ( <( 'false'
+						 -| ['compiler_generated'] )> when 'true' ->
+						  ( 'fail'
+						    -| ['compiler_generated'] )
+					      -| ['compiler_generated'] )
+					    ( <( _5
+						 -| ['compiler_generated'] )> when 'true' ->
+						  ( call ( 'erlang'
+							   -| ['compiler_generated'] ):( 'error'
+											 -| ['compiler_generated'] )
+							(( {( 'badarg'
+							      -| ['compiler_generated'] ),( _5
+											    -| ['compiler_generated'] )}
+							   -| ['compiler_generated'] ))
+						    -| ['compiler_generated'] )
+					      -| ['compiler_generated'] )
+					  end
+				      in  let <_8> =
+					      call 'erlang':'=:='
+						  (( _7
+						     -| ['compiler_generated'] ), 'true')
+					  in  let <_9> =
+						  call 'erlang':'element'
+						      (3, _0)
+					      in  let <_10> =
+						      call 'erlang':'>'
+							  (H, _9)
+						  in  ( call ( 'erlang'
+							       -| ['compiler_generated'] ):( 'and'
+											     -| ['compiler_generated'] )
+							    (( _8
+							       -| ['v3_core','compiler_generated'] ), _10)
+							-| ['compiler_generated'] )
+				      -| ['compiler_generated'] )
+				of <Try> ->
+				    Try
+				catch <T,R> ->
+				    'false'
+				-| ['compiler_generated'] ) ->
+			    case _0 of
+			      ( <( {'dict',_22,_23,_24,_rec1,_25,_26,_27,_28}
+				   -| ['compiler_generated'] )> when 'true' ->
+				    call 'erlang':'-'
+					(H, _rec1)
+				-| ['compiler_generated'] )
+			      ( <_rec1> when 'true' ->
+				    ( primop 'match_fail'
+					  (( {( 'badrecord'
+						-| ['compiler_generated'] ),_rec1}
+					     -| ['compiler_generated'] ))
+				      -| ['compiler_generated'] )
+				-| ['compiler_generated'] )
+			    end
+			%% Line 417
+			<> when 'true' ->
+			    H
+		      end
+	      -| ['compiler_generated'] )
+	    ( <_rec0> when 'true' ->
+		  ( primop 'match_fail'
+			(( {( 'badrecord'
+			      -| ['compiler_generated'] ),_rec0}
+			   -| ['compiler_generated'] ))
+		    -| ['compiler_generated'] )
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'get_slot',2}}] )
+'get_bucket'/2 =
+    %% Line 422
+    ( fun (_0,_1) ->
+	  case _0 of
+	    ( <( {'dict',_6,_7,_8,_9,_10,_11,_12,_rec2}
+		 -| ['compiler_generated'] )> when 'true' ->
+		  apply 'get_bucket_s'/2
+		      (_rec2, _1)
+	      -| ['compiler_generated'] )
+	    ( <_rec2> when 'true' ->
+		  ( primop 'match_fail'
+			(( {( 'badrecord'
+			      -| ['compiler_generated'] ),_rec2}
+			   -| ['compiler_generated'] ))
+		    -| ['compiler_generated'] )
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'get_bucket',2}}] )
+'on_bucket'/3 =
+    %% Line 427
+    ( fun (_0,_1,_2) ->
+	  let <_3> =
+	      call %% Line 428
+		   'erlang':%% Line 428
+			    '-'
+		  (_2, %% Line 428
+		       1)
+	  in  let <_4> =
+		  call %% Line 428
+		       'erlang':%% Line 428
+				'div'
+		      (%% Line 428
+		       _3, %% Line 428
+			   16)
+	      in  let <SegI> =
+		      call %% Line 428
+			   'erlang':%% Line 428
+				    '+'
+			  (%% Line 428
+			   _4, %% Line 428
+			       1)
+		  in  let <_6> =
+			  call %% Line 429
+			       'erlang':%% Line 429
+					'-'
+			      (_2, %% Line 429
+				   1)
+		      in  let <_7> =
+			      call %% Line 429
+				   'erlang':%% Line 429
+					    'rem'
+				  (%% Line 429
+				   _6, %% Line 429
+				       16)
+			  in  let <BktI> =
+				  call %% Line 429
+				       'erlang':%% Line 429
+						'+'
+				      (%% Line 429
+				       _7, %% Line 429
+					   1)
+			      in  %% Line 430
+				  case _1 of
+				    ( <( {'dict',_23,_24,_25,_26,_27,_28,_29,_rec3}
+					 -| ['compiler_generated'] )> when 'true' ->
+					  let <Seg> =
+					      call %% Line 431
+						   'erlang':%% Line 431
+							    'element'
+						  (%% Line 431
+						   SegI, _rec3)
+					  in  let <B0> =
+						  call %% Line 432
+						       'erlang':%% Line 432
+								'element'
+						      (%% Line 432
+						       BktI, %% Line 432
+							     Seg)
+					      in  %% Line 433
+						  case apply _0
+							   (B0) of
+						    <{B1,Res}> when 'true' ->
+							let <_15> =
+							    call %% Line 434
+								 'erlang':%% Line 434
+									  'setelement'
+								(%% Line 434
+								 BktI, %% Line 434
+								       Seg, %% Line 434
+									    B1)
+							in  let <_rec4> =
+								call %% Line 434
+								     'erlang':%% Line 434
+									      'setelement'
+								    (%% Line 434
+								     SegI, _rec3, %% Line 434
+										  _15)
+							    in  %% Line 434
+								case _1 of
+								  <{'dict',_30,_31,_32,_33,_34,_35,_36,_37}> when 'true' ->
+								      let <_19> =
+									  call 'erlang':'setelement'
+									      (9, _1, _rec4)
+								      in  {_19,Res}
+								  ( <_38> when 'true' ->
+									( primop 'match_fail'
+									      (( {( 'badrecord'
+										    -| ['compiler_generated'] ),_1}
+										 -| ['compiler_generated'] ))
+									  -| ['compiler_generated'] )
+								    -| ['compiler_generated'] )
+								end
+						    ( <_14> when 'true' ->
+							  primop 'match_fail'
+							      ({'badmatch',_14})
+						      -| ['compiler_generated'] )
+						  end
+				      -| ['compiler_generated'] )
+				    ( <_rec3> when 'true' ->
+					  ( primop 'match_fail'
+						(( {( 'badrecord'
+						      -| ['compiler_generated'] ),_rec3}
+						   -| ['compiler_generated'] ))
+					    -| ['compiler_generated'] )
+				      -| ['compiler_generated'] )
+				  end
+      -| [{'function',{'on_bucket',3}}] )
+'fold_dict'/3 =
+    %% Line 445
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <F,Acc,{'dict',0,_11,_12,_13,_14,_15,_16,_17}>
+		  when try
+			let <_3> =
+			    call 'erlang':'is_function'
+				(F, 3)
+			in  ( call 'erlang':'=:='
+				  (_3, 'true')
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 446
+		  Acc
+	      %% Line 447
+	      <F,Acc,D> when 'true' ->
+		  %% Line 448
+		  case D of
+		    ( <( {'dict',_18,_19,_20,_21,_22,_23,_24,_rec6}
+			 -| ['compiler_generated'] )> when 'true' ->
+			  let <_7> =
+			      call %% Line 449
+				   'erlang':%% Line 449
+					    'tuple_size'
+				  (_rec6)
+			  in  %% Line 449
+			      apply 'fold_segs'/4
+				  (F, Acc, _rec6, _7)
+		      -| ['compiler_generated'] )
+		    ( <_rec6> when 'true' ->
+			  ( primop 'match_fail'
+				(( {( 'badrecord'
+				      -| ['compiler_generated'] ),_rec6}
+				   -| ['compiler_generated'] ))
+			    -| ['compiler_generated'] )
+		      -| ['compiler_generated'] )
+		  end
+	    end
+	    -| [{'function',{'fold_dict',3}}] )
+      -| [{'function',{'fold_dict',3}}] )
+'fold_segs'/4 =
+    %% Line 451
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <F,Acc,Segs,I>
+		  when call 'erlang':'>='
+			(I,
+			 1) ->
+		  let <Seg> =
+		      call %% Line 452
+			   'erlang':%% Line 452
+				    'element'
+			  (%% Line 452
+			   I, %% Line 452
+			      Segs)
+		  in  let <_6> =
+			  call %% Line 453
+			       'erlang':%% Line 453
+					'tuple_size'
+			      (%% Line 453
+			       Seg)
+		      in  let <_7> =
+			      apply %% Line 453
+				    'fold_seg'/4
+				  (%% Line 453
+				   F, %% Line 453
+				      Acc, %% Line 453
+					   Seg, %% Line 453
+						_6)
+			  in  let <_5> =
+				  call %% Line 453
+				       'erlang':%% Line 453
+						'-'
+				      (%% Line 453
+				       I, %% Line 453
+					  1)
+			      in  %% Line 453
+				  apply 'fold_segs'/4
+				      (F, _7, Segs, _5)
+	      %% Line 454
+	      <F,Acc,_13,0>
+		  when try
+			let <_8> =
+			    call 'erlang':'is_function'
+				(F, 3)
+			in  ( call 'erlang':'=:='
+				  (_8, 'true')
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  Acc
+	      ( <_12,_11,_10,_9> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_12,_11,_10,_9}
+			     -| [{'function',{'fold_segs',4}}] ))
+		      -| [{'function',{'fold_segs',4}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'fold_segs',4}}] )
+      -| [{'function',{'fold_segs',4}}] )
+'fold_seg'/4 =
+    %% Line 456
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <F,Acc,Seg,I>
+		  when call 'erlang':'>='
+			(I,
+			 1) ->
+		  let <_5> =
+		      call %% Line 457
+			   'erlang':%% Line 457
+				    'element'
+			  (%% Line 457
+			   I, %% Line 457
+			      Seg)
+		  in  let <_6> =
+			  apply %% Line 457
+				'fold_bucket'/3
+			      (%% Line 457
+			       F, %% Line 457
+				  Acc, %% Line 457
+				       _5)
+		      in  let <_4> =
+			      call %% Line 457
+				   'erlang':%% Line 457
+					    '-'
+				  (%% Line 457
+				   I, %% Line 457
+				      1)
+			  in  %% Line 457
+			      apply 'fold_seg'/4
+				  (F, _6, Seg, _4)
+	      %% Line 458
+	      <F,Acc,_12,0>
+		  when try
+			let <_7> =
+			    call 'erlang':'is_function'
+				(F, 3)
+			in  ( call 'erlang':'=:='
+				  (_7, 'true')
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  Acc
+	      ( <_11,_10,_9,_8> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_11,_10,_9,_8}
+			     -| [{'function',{'fold_seg',4}}] ))
+		      -| [{'function',{'fold_seg',4}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'fold_seg',4}}] )
+      -| [{'function',{'fold_seg',4}}] )
+'fold_bucket'/3 =
+    %% Line 460
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <F,Acc,[[Key|Val]|Bkt]> when 'true' ->
+		  let <_3> =
+		      apply %% Line 461
+			    F
+			  (%% Line 461
+			   Key, %% Line 461
+				Val, %% Line 461
+				     Acc)
+		  in  %% Line 461
+		      apply 'fold_bucket'/3
+			  (F, _3, Bkt)
+	      %% Line 462
+	      <F,Acc,[]>
+		  when try
+			let <_4> =
+			    call 'erlang':'is_function'
+				(F, 3)
+			in  ( call 'erlang':'=:='
+				  (_4, 'true')
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  Acc
+	      ( <_7,_6,_5> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_7,_6,_5}
+			     -| [{'function',{'fold_bucket',3}}] ))
+		      -| [{'function',{'fold_bucket',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'fold_bucket',3}}] )
+      -| [{'function',{'fold_bucket',3}}] )
+'map_dict'/2 =
+    %% Line 464
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <F,Dict = {'dict',0,_12,_13,_14,_15,_16,_17,_18}>
+		  when try
+			let <_2> =
+			    call 'erlang':'is_function'
+				(F, 2)
+			in  ( call 'erlang':'=:='
+				  (_2, 'true')
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 465
+		  Dict
+	      %% Line 466
+	      <F,D> when 'true' ->
+		  %% Line 467
+		  case D of
+		    ( <( {'dict',_19,_20,_21,_22,_23,_24,_25,_rec7}
+			 -| ['compiler_generated'] )> when 'true' ->
+			  let <Segs0> =
+			      call 'erlang':'tuple_to_list'
+				  (_rec7)
+			  in  let <Segs1> =
+				  apply %% Line 468
+					'map_seg_list'/2
+				      (%% Line 468
+				       F, %% Line 468
+					  Segs0)
+			      in  let <_rec8> =
+				      call %% Line 469
+					   'erlang':%% Line 469
+						    'list_to_tuple'
+					  (%% Line 469
+					   Segs1)
+				  in  %% Line 469
+				      case D of
+					<{'dict',_26,_27,_28,_29,_30,_31,_32,_33}> when 'true' ->
+					    call 'erlang':'setelement'
+						(9, D, _rec8)
+					( <_34> when 'true' ->
+					      ( primop 'match_fail'
+						    (( {( 'badrecord'
+							  -| ['compiler_generated'] ),D}
+						       -| ['compiler_generated'] ))
+						-| ['compiler_generated'] )
+					  -| ['compiler_generated'] )
+				      end
+		      -| ['compiler_generated'] )
+		    ( <_rec7> when 'true' ->
+			  ( primop 'match_fail'
+				(( {( 'badrecord'
+				      -| ['compiler_generated'] ),_rec7}
+				   -| ['compiler_generated'] ))
+			    -| ['compiler_generated'] )
+		      -| ['compiler_generated'] )
+		  end
+	    end
+	    -| [{'function',{'map_dict',2}}] )
+      -| [{'function',{'map_dict',2}}] )
+'map_seg_list'/2 =
+    %% Line 471
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <F,[Seg|Segs]> when 'true' ->
+		  let <Bkts0> =
+		      call %% Line 472
+			   'erlang':%% Line 472
+				    'tuple_to_list'
+			  (%% Line 472
+			   Seg)
+		  in  let <Bkts1> =
+			  apply %% Line 473
+				'map_bkt_list'/2
+			      (%% Line 473
+			       F, %% Line 473
+				  Bkts0)
+		      in  let <_5> =
+			      call %% Line 474
+				   'erlang':%% Line 474
+					    'list_to_tuple'
+				  (%% Line 474
+				   Bkts1)
+			  in  let <_4> =
+				  apply %% Line 474
+					'map_seg_list'/2
+				      (%% Line 474
+				       F, %% Line 474
+					  Segs)
+			      in  %% Line 474
+				  [_5|_4]
+	      %% Line 475
+	      <F,[]>
+		  when try
+			let <_6> =
+			    call 'erlang':'is_function'
+				(F, 2)
+			in  ( call 'erlang':'=:='
+				  (_6, 'true')
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  []
+	      ( <_8,_7> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_8,_7}
+			     -| [{'function',{'map_seg_list',2}}] ))
+		      -| [{'function',{'map_seg_list',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'map_seg_list',2}}] )
+      -| [{'function',{'map_seg_list',2}}] )
+'map_bkt_list'/2 =
+    %% Line 477
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <F,[Bkt0|Bkts]> when 'true' ->
+		  let <_3> =
+		      apply %% Line 478
+			    'map_bucket'/2
+			  (%% Line 478
+			   F, %% Line 478
+			      Bkt0)
+		  in  let <_2> =
+			  apply %% Line 478
+				'map_bkt_list'/2
+			      (%% Line 478
+			       F, %% Line 478
+				  Bkts)
+		      in  %% Line 478
+			  [_3|_2]
+	      %% Line 479
+	      <F,[]>
+		  when try
+			let <_4> =
+			    call 'erlang':'is_function'
+				(F, 2)
+			in  ( call 'erlang':'=:='
+				  (_4, 'true')
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  []
+	      ( <_6,_5> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_6,_5}
+			     -| [{'function',{'map_bkt_list',2}}] ))
+		      -| [{'function',{'map_bkt_list',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'map_bkt_list',2}}] )
+      -| [{'function',{'map_bkt_list',2}}] )
+'map_bucket'/2 =
+    %% Line 481
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <F,[[Key|Val]|Bkt]> when 'true' ->
+		  let <_3> =
+		      apply %% Line 482
+			    F
+			  (%% Line 482
+			   Key, %% Line 482
+				Val)
+		  in  let <_2> =
+			  apply %% Line 482
+				'map_bucket'/2
+			      (%% Line 482
+			       F, %% Line 482
+				  Bkt)
+		      in  %% Line 482
+			  [[Key|_3]|_2]
+	      %% Line 483
+	      <F,[]>
+		  when try
+			let <_4> =
+			    call 'erlang':'is_function'
+				(F, 2)
+			in  ( call 'erlang':'=:='
+				  (_4, 'true')
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  []
+	      ( <_6,_5> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_6,_5}
+			     -| [{'function',{'map_bucket',2}}] ))
+		      -| [{'function',{'map_bucket',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'map_bucket',2}}] )
+      -| [{'function',{'map_bucket',2}}] )
+'filter_dict'/2 =
+    %% Line 485
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <F,Dict = {'dict',0,_13,_14,_15,_16,_17,_18,_19}>
+		  when try
+			let <_2> =
+			    call 'erlang':'is_function'
+				(F, 2)
+			in  ( call 'erlang':'=:='
+				  (_2, 'true')
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 486
+		  Dict
+	      %% Line 487
+	      <F,D> when 'true' ->
+		  %% Line 488
+		  case D of
+		    ( <( {'dict',_20,_21,_22,_23,_24,_25,_26,_rec10}
+			 -| ['compiler_generated'] )> when 'true' ->
+			  let <Segs0> =
+			      call 'erlang':'tuple_to_list'
+				  (_rec10)
+			  in  %% Line 489
+			      case apply 'filter_seg_list'/4
+				       (F, Segs0, [], 0) of
+				<{Segs1,Fc}> when 'true' ->
+				    let <_rec11> =
+					call %% Line 490
+					     'erlang':%% Line 490
+						      'list_to_tuple'
+					    (%% Line 490
+					     Segs1)
+				    in  %% Line 490
+					case D of
+					  <{'dict',_27,_28,_29,_30,_31,_32,_33,_34}> when 'true' ->
+					      let <_10> =
+						  call 'erlang':'setelement'
+						      (9, D, _rec11)
+					      in  apply 'maybe_contract'/2
+						      (_10, Fc)
+					  ( <_35> when 'true' ->
+						( primop 'match_fail'
+						      (( {( 'badrecord'
+							    -| ['compiler_generated'] ),D}
+							 -| ['compiler_generated'] ))
+						  -| ['compiler_generated'] )
+					    -| ['compiler_generated'] )
+					end
+				( <_6> when 'true' ->
+				      primop 'match_fail'
+					  ({'badmatch',_6})
+				  -| ['compiler_generated'] )
+			      end
+		      -| ['compiler_generated'] )
+		    ( <_rec10> when 'true' ->
+			  ( primop 'match_fail'
+				(( {( 'badrecord'
+				      -| ['compiler_generated'] ),_rec10}
+				   -| ['compiler_generated'] ))
+			    -| ['compiler_generated'] )
+		      -| ['compiler_generated'] )
+		  end
+	    end
+	    -| [{'function',{'filter_dict',2}}] )
+      -| [{'function',{'filter_dict',2}}] )
+'filter_seg_list'/4 =
+    %% Line 492
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <F,[Seg|Segs],Fss,Fc0> when 'true' ->
+		  let <Bkts0> =
+		      call %% Line 493
+			   'erlang':%% Line 493
+				    'tuple_to_list'
+			  (%% Line 493
+			   Seg)
+		  in  %% Line 494
+		      case apply 'filter_bkt_list'/4
+			       (F, Bkts0, [], Fc0) of
+			<{Bkts1,Fc1}> when 'true' ->
+			    let <_6> =
+				call %% Line 495
+				     'erlang':%% Line 495
+					      'list_to_tuple'
+				    (%% Line 495
+				     Bkts1)
+			    in  %% Line 495
+				apply 'filter_seg_list'/4
+				    (F, Segs, [_6|Fss], Fc1)
+			( <_5> when 'true' ->
+			      primop 'match_fail'
+				  ({'badmatch',_5})
+			  -| ['compiler_generated'] )
+		      end
+	      %% Line 496
+	      <F,[],Fss,Fc>
+		  when try
+			let <_7> =
+			    call 'erlang':'is_function'
+				(F, 2)
+			in  ( call 'erlang':'=:='
+				  (_7, 'true')
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  let <_8> =
+		      call %% Line 497
+			   'lists':%% Line 497
+				   'reverse'
+			  (%% Line 497
+			   Fss, %% Line 497
+				[])
+		  in  %% Line 497
+		      {_8,Fc}
+	      ( <_12,_11,_10,_9> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_12,_11,_10,_9}
+			     -| [{'function',{'filter_seg_list',4}}] ))
+		      -| [{'function',{'filter_seg_list',4}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'filter_seg_list',4}}] )
+      -| [{'function',{'filter_seg_list',4}}] )
+'filter_bkt_list'/4 =
+    %% Line 499
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <F,[Bkt0|Bkts],Fbs,Fc0> when 'true' ->
+		  %% Line 500
+		  case apply 'filter_bucket'/4
+			   (F, Bkt0, [], Fc0) of
+		    <{Bkt1,Fc1}> when 'true' ->
+			%% Line 501
+			apply 'filter_bkt_list'/4
+			    (F, Bkts, [Bkt1|Fbs], Fc1)
+		    ( <_4> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_4})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 502
+	      <F,[],Fbs,Fc>
+		  when try
+			let <_5> =
+			    call 'erlang':'is_function'
+				(F, 2)
+			in  ( call 'erlang':'=:='
+				  (_5, 'true')
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  let <_6> =
+		      call %% Line 503
+			   'lists':%% Line 503
+				   'reverse'
+			  (%% Line 503
+			   Fbs)
+		  in  %% Line 503
+		      {_6,Fc}
+	      ( <_10,_9,_8,_7> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_10,_9,_8,_7}
+			     -| [{'function',{'filter_bkt_list',4}}] ))
+		      -| [{'function',{'filter_bkt_list',4}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'filter_bkt_list',4}}] )
+      -| [{'function',{'filter_bkt_list',4}}] )
+'filter_bucket'/4 =
+    %% Line 505
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <F,[E = [Key|Val]|Bkt],Fb,Fc> when 'true' ->
+		  %% Line 506
+		  case apply F
+			   (Key, Val) of
+		    %% Line 507
+		    <'true'> when 'true' ->
+			apply 'filter_bucket'/4
+			    (F, Bkt, [E|Fb], Fc)
+		    %% Line 508
+		    <'false'> when 'true' ->
+			let <_4> =
+			    call 'erlang':'+'
+				(Fc, 1)
+			in  apply 'filter_bucket'/4
+				(F, Bkt, Fb, _4)
+		    ( <_5> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_5})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 510
+	      <F,[],Fb,Fc>
+		  when try
+			let <_6> =
+			    call 'erlang':'is_function'
+				(F, 2)
+			in  ( call 'erlang':'=:='
+				  (_6, 'true')
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  let <_7> =
+		      call %% Line 511
+			   'lists':%% Line 511
+				   'reverse'
+			  (%% Line 511
+			   Fb)
+		  in  %% Line 511
+		      {_7,Fc}
+	      ( <_11,_10,_9,_8> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_11,_10,_9,_8}
+			     -| [{'function',{'filter_bucket',4}}] ))
+		      -| [{'function',{'filter_bucket',4}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'filter_bucket',4}}] )
+      -| [{'function',{'filter_bucket',4}}] )
+'get_bucket_s'/2 =
+    %% Line 516
+    ( fun (_0,_1) ->
+	  let <_2> =
+	      call %% Line 517
+		   'erlang':%% Line 517
+			    '-'
+		  (_1, %% Line 517
+		       1)
+	  in  let <_3> =
+		  call %% Line 517
+		       'erlang':%% Line 517
+				'div'
+		      (%% Line 517
+		       _2, %% Line 517
+			   16)
+	      in  let <SegI> =
+		      call %% Line 517
+			   'erlang':%% Line 517
+				    '+'
+			  (%% Line 517
+			   _3, %% Line 517
+			       1)
+		  in  let <_5> =
+			  call %% Line 518
+			       'erlang':%% Line 518
+					'-'
+			      (_1, %% Line 518
+				   1)
+		      in  let <_6> =
+			      call %% Line 518
+				   'erlang':%% Line 518
+					    'rem'
+				  (%% Line 518
+				   _5, %% Line 518
+				       16)
+			  in  let <BktI> =
+				  call %% Line 518
+				       'erlang':%% Line 518
+						'+'
+				      (%% Line 518
+				       _6, %% Line 518
+					   1)
+			      in  let <_8> =
+				      call %% Line 519
+					   'erlang':%% Line 519
+						    'element'
+					  (%% Line 519
+					   SegI, _0)
+				  in  %% Line 519
+				      call 'erlang':'element'
+					  (BktI, _8)
+      -| [{'function',{'get_bucket_s',2}}] )
+'put_bucket_s'/3 =
+    %% Line 521
+    ( fun (_0,_1,_2) ->
+	  let <_3> =
+	      call %% Line 522
+		   'erlang':%% Line 522
+			    '-'
+		  (_1, %% Line 522
+		       1)
+	  in  let <_4> =
+		  call %% Line 522
+		       'erlang':%% Line 522
+				'div'
+		      (%% Line 522
+		       _3, %% Line 522
+			   16)
+	      in  let <SegI> =
+		      call %% Line 522
+			   'erlang':%% Line 522
+				    '+'
+			  (%% Line 522
+			   _4, %% Line 522
+			       1)
+		  in  let <_6> =
+			  call %% Line 523
+			       'erlang':%% Line 523
+					'-'
+			      (_1, %% Line 523
+				   1)
+		      in  let <_7> =
+			      call %% Line 523
+				   'erlang':%% Line 523
+					    'rem'
+				  (%% Line 523
+				   _6, %% Line 523
+				       16)
+			  in  let <BktI> =
+				  call %% Line 523
+				       'erlang':%% Line 523
+						'+'
+				      (%% Line 523
+				       _7, %% Line 523
+					   1)
+			      in  let <_9> =
+				      call %% Line 524
+					   'erlang':%% Line 524
+						    'element'
+					  (%% Line 524
+					   SegI, _0)
+				  in  let <Seg> =
+					  call %% Line 524
+					       'erlang':%% Line 524
+							'setelement'
+					      (%% Line 524
+					       BktI, %% Line 524
+						     _9, _2)
+				      in  %% Line 525
+					  call 'erlang':'setelement'
+					      (SegI, _0, Seg)
+      -| [{'function',{'put_bucket_s',3}}] )
+'maybe_expand'/2 =
+    %% Line 531
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <T,0> when 'true' ->
+		  apply 'maybe_expand_aux'/2
+		      (T, 0)
+	      %% Line 532
+	      <T,1> when 'true' ->
+		  apply 'maybe_expand_aux'/2
+		      (T, 1)
+	      ( <_3,_2> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_3,_2}
+			     -| [{'function',{'maybe_expand',2}}] ))
+		      -| [{'function',{'maybe_expand',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'maybe_expand',2}}] )
+      -| [{'function',{'maybe_expand',2}}] )
+'maybe_expand_aux'/2 =
+    %% Line 534
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <T0 = {'dict',_41,_42,_43,_44,_45,_46,_47,_48},Ic>
+		  when ( try
+			  let <_7> =
+			      call 'erlang':'element'
+				  (2, T0)
+			  in  let <_8> =
+				  call 'erlang':'+'
+				      (_7, Ic)
+			      in  let <_6> =
+				      call 'erlang':'element'
+					  (6, T0)
+				  in  let <_9> =
+					  call 'erlang':'>'
+					      (_8, _6)
+				      in  ( call ( 'erlang'
+						   -| ['compiler_generated'] ):( 'and'
+										 -| ['compiler_generated'] )
+						(( 'true'
+						   -| ['compiler_generated'] ), _9)
+					    -| ['compiler_generated'] )
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false'
+		      -| ['compiler_generated'] ) ->
+		  let <T> =
+		      apply %% Line 535
+			    'maybe_expand_segs'/1
+			  (%% Line 535
+			   T0)
+		  in  %% Line 536
+		      case T of
+			( <( {'dict',_49,_rec13,_50,_51,_52,_53,_54,_55}
+			     -| ['compiler_generated'] )> when 'true' ->
+			      let <N> =
+				  call 'erlang':'+'
+				      (_rec13, 1)
+			      in  %% Line 537
+				  case T of
+				    ( <( {'dict',_56,_57,_58,_59,_60,_61,_62,_rec14}
+					 -| ['compiler_generated'] )> when 'true' ->
+					  %% Line 538
+					  case T of
+					    ( <( {'dict',_63,_64,_65,_rec15,_66,_67,_68,_69}
+						 -| ['compiler_generated'] )> when 'true' ->
+						  let <Slot1> =
+						      call 'erlang':'-'
+							  (N, _rec15)
+						  in  let <B> =
+							  apply %% Line 539
+								'get_bucket_s'/2
+							      (_rec14, %% Line 539
+								       Slot1)
+						      in  %% Line 541
+							  case T of
+							    ( <( {'dict',_70,_71,_rec16,_72,_73,_74,_75,_76}
+								 -| ['compiler_generated'] )> when 'true' ->
+								  case apply 'rehash'/4
+									   (B, Slot1, N, _rec16) of
+								    <[B1|B2]> when 'true' ->
+									let <Segs1> =
+									    apply %% Line 542
+										  'put_bucket_s'/3
+										(_rec14, %% Line 542
+											 Slot1, %% Line 542
+												B1)
+									in  let <Segs2> =
+										apply %% Line 543
+										      'put_bucket_s'/3
+										    (%% Line 543
+										     Segs1, N, %% Line 543
+											       B2)
+									    in  %% Line 544
+										case T of
+										  ( <( {'dict',_rec29,_77,_78,_79,_80,_81,_82,_83}
+										       -| ['compiler_generated'] )> when 'true' ->
+											let <_rec17> =
+											    call 'erlang':'+'
+												(_rec29, Ic)
+											in  let <_rec18> =
+												call %% Line 546
+												     'erlang':%% Line 546
+													      '*'
+												    (%% Line 546
+												     N, %% Line 546
+													5)
+											    in  let <_rec19> =
+												    call %% Line 547
+													 'erlang':%% Line 547
+														  '*'
+													(%% Line 547
+													 N, %% Line 547
+													    3)
+												in  case T of
+												      <{'dict',_rec21,_rec22,_rec23,_rec24,_rec25,_rec26,_rec27,_rec28}> when 'true' ->
+													  {'dict',_rec17,%% Line 545
+															 N,_rec23,_rec24,%% Line 546
+																	 _rec18,%% Line 547
+																		_rec19,_rec27,%% Line 548
+																			      Segs2}
+												      ( <_84> when 'true' ->
+													    ( primop 'match_fail'
+														  (( {( 'badrecord'
+															-| ['compiler_generated'] ),T}
+														     -| ['compiler_generated'] ))
+													      -| ['compiler_generated'] )
+													-| ['compiler_generated'] )
+												    end
+										    -| ['compiler_generated'] )
+										  ( <_rec29> when 'true' ->
+											( primop 'match_fail'
+											      (( {( 'badrecord'
+												    -| ['compiler_generated'] ),_rec29}
+												 -| ['compiler_generated'] ))
+											  -| ['compiler_generated'] )
+										    -| ['compiler_generated'] )
+										end
+								    ( <_24> when 'true' ->
+									  primop 'match_fail'
+									      ({'badmatch',_24})
+								      -| ['compiler_generated'] )
+								  end
+							      -| ['compiler_generated'] )
+							    ( <_rec16> when 'true' ->
+								  ( primop 'match_fail'
+									(( {( 'badrecord'
+									      -| ['compiler_generated'] ),_rec16}
+									   -| ['compiler_generated'] ))
+								    -| ['compiler_generated'] )
+							      -| ['compiler_generated'] )
+							  end
+					      -| ['compiler_generated'] )
+					    ( <_rec15> when 'true' ->
+						  ( primop 'match_fail'
+							(( {( 'badrecord'
+							      -| ['compiler_generated'] ),_rec15}
+							   -| ['compiler_generated'] ))
+						    -| ['compiler_generated'] )
+					      -| ['compiler_generated'] )
+					  end
+				      -| ['compiler_generated'] )
+				    ( <_rec14> when 'true' ->
+					  ( primop 'match_fail'
+						(( {( 'badrecord'
+						      -| ['compiler_generated'] ),_rec14}
+						   -| ['compiler_generated'] ))
+					    -| ['compiler_generated'] )
+				      -| ['compiler_generated'] )
+				  end
+			  -| ['compiler_generated'] )
+			( <_rec13> when 'true' ->
+			      ( primop 'match_fail'
+				    (( {( 'badrecord'
+					  -| ['compiler_generated'] ),_rec13}
+				       -| ['compiler_generated'] ))
+				-| ['compiler_generated'] )
+			  -| ['compiler_generated'] )
+		      end
+	      %% Line 549
+	      <T,Ic> when 'true' ->
+		  case T of
+		    ( <( {'dict',_rec32,_85,_86,_87,_88,_89,_90,_91}
+			 -| ['compiler_generated'] )> when 'true' ->
+			  let <_rec30> =
+			      call 'erlang':'+'
+				  (_rec32, Ic)
+			  in  case T of
+				<{'dict',_92,_93,_94,_95,_96,_97,_98,_99}> when 'true' ->
+				    call 'erlang':'setelement'
+					(2, T, _rec30)
+				( <_100> when 'true' ->
+				      ( primop 'match_fail'
+					    (( {( 'badrecord'
+						  -| ['compiler_generated'] ),T}
+					       -| ['compiler_generated'] ))
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+			      end
+		      -| ['compiler_generated'] )
+		    ( <_rec32> when 'true' ->
+			  ( primop 'match_fail'
+				(( {( 'badrecord'
+				      -| ['compiler_generated'] ),_rec32}
+				   -| ['compiler_generated'] ))
+			    -| ['compiler_generated'] )
+		      -| ['compiler_generated'] )
+		  end
+	    end
+	    -| [{'function',{'maybe_expand_aux',2}}] )
+      -| [{'function',{'maybe_expand_aux',2}}] )
+'maybe_expand_segs'/1 =
+    %% Line 551
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'maybe_expand_segs',1}}] ) of
+	      <T = {'dict',_24,_25,_26,_27,_28,_29,_30,_31}>
+		  when ( try
+			  let <_6> =
+			      call 'erlang':'element'
+				  (3, T)
+			  in  let <_5> =
+				  call 'erlang':'element'
+				      (4, T)
+			      in  let <_7> =
+				      call 'erlang':'=:='
+					  (_6, _5)
+				  in  ( call ( 'erlang'
+					       -| ['compiler_generated'] ):( 'and'
+									     -| ['compiler_generated'] )
+					    (( 'true'
+					       -| ['compiler_generated'] ), _7)
+					-| ['compiler_generated'] )
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false'
+		      -| ['compiler_generated'] ) ->
+		  %% Line 552
+		  case T of
+		    ( <( {'dict',_32,_33,_rec37,_34,_35,_36,_37,_38}
+			 -| ['compiler_generated'] )> when 'true' ->
+			  let <_rec33> =
+			      call 'erlang':'*'
+				  (2, _rec37)
+			  in  %% Line 553
+			      case T of
+				( <( {'dict',_39,_40,_41,_rec38,_42,_43,_44,_45}
+				     -| ['compiler_generated'] )> when 'true' ->
+				      let <_rec34> =
+					  call 'erlang':'*'
+					      (2, _rec38)
+				      in  %% Line 554
+					  case T of
+					    ( <( {'dict',_46,_47,_48,_49,_50,_51,_52,_rec39}
+						 -| ['compiler_generated'] )> when 'true' ->
+						  case T of
+						    ( <( {'dict',_53,_54,_55,_56,_57,_58,_rec40,_59}
+							 -| ['compiler_generated'] )> when 'true' ->
+							  let <_rec35> =
+							      apply 'expand_segs'/2
+								  (_rec39, _rec40)
+							  in  case T of
+								<{'dict',_60,_61,_62,_63,_64,_65,_66,_67}> when 'true' ->
+								    let <_20> =
+									call 'erlang':'setelement'
+									    (9, T, _rec35)
+								    in  let <_21> =
+									    call 'erlang':'setelement'
+										(5, _20, _rec34)
+									in  call 'erlang':'setelement'
+										(4, _21, _rec33)
+								( <_68> when 'true' ->
+								      ( primop 'match_fail'
+									    (( {( 'badrecord'
+										  -| ['compiler_generated'] ),T}
+									       -| ['compiler_generated'] ))
+									-| ['compiler_generated'] )
+								  -| ['compiler_generated'] )
+							      end
+						      -| ['compiler_generated'] )
+						    ( <_rec40> when 'true' ->
+							  ( primop 'match_fail'
+								(( {( 'badrecord'
+								      -| ['compiler_generated'] ),_rec40}
+								   -| ['compiler_generated'] ))
+							    -| ['compiler_generated'] )
+						      -| ['compiler_generated'] )
+						  end
+					      -| ['compiler_generated'] )
+					    ( <_rec39> when 'true' ->
+						  ( primop 'match_fail'
+							(( {( 'badrecord'
+							      -| ['compiler_generated'] ),_rec39}
+							   -| ['compiler_generated'] ))
+						    -| ['compiler_generated'] )
+					      -| ['compiler_generated'] )
+					  end
+				  -| ['compiler_generated'] )
+				( <_rec38> when 'true' ->
+				      ( primop 'match_fail'
+					    (( {( 'badrecord'
+						  -| ['compiler_generated'] ),_rec38}
+					       -| ['compiler_generated'] ))
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+			      end
+		      -| ['compiler_generated'] )
+		    ( <_rec37> when 'true' ->
+			  ( primop 'match_fail'
+				(( {( 'badrecord'
+				      -| ['compiler_generated'] ),_rec37}
+				   -| ['compiler_generated'] ))
+			    -| ['compiler_generated'] )
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 555
+	      <T> when 'true' ->
+		  T
+	    end
+	    -| [{'function',{'maybe_expand_segs',1}}] )
+      -| [{'function',{'maybe_expand_segs',1}}] )
+'maybe_contract'/2 =
+    %% Line 557
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <T = {'dict',_44,_45,_46,_47,_48,_49,_50,_51},Dc>
+		  when ( try
+			  let <_7> =
+			      call 'erlang':'element'
+				  (2, T)
+			  in  let <_8> =
+				  call 'erlang':'-'
+				      (_7, Dc)
+			      in  let <_6> =
+				      call 'erlang':'element'
+					  (7, T)
+				  in  let <_9> =
+					  call 'erlang':'<'
+					      (_8, _6)
+				      in  let <_10> =
+					      call ( 'erlang'
+						     -| ['compiler_generated'] ):( 'and'
+										   -| ['compiler_generated'] )
+						  (( 'true'
+						     -| ['compiler_generated'] ), _9)
+					  in  let <_11> =
+						  call %% Line 558
+						       'erlang':%% Line 558
+								'element'
+						      (%% Line 558
+						       3, %% Line 558
+							  T)
+					      in  let <_12> =
+						      call %% Line 558
+							   'erlang':%% Line 558
+								    '>'
+							  (%% Line 558
+							   _11, %% Line 558
+								16)
+						  in  ( call ( 'erlang'
+							       -| ['compiler_generated'] ):( 'and'
+											     -| ['compiler_generated'] )
+							    (( _10
+							       -| ['compiler_generated'] ), %% Line 558
+											    _12)
+							-| ['compiler_generated'] )
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false'
+		      -| ['compiler_generated'] ) ->
+		  %% Line 559
+		  case T of
+		    ( <( {'dict',_52,_rec41,_53,_54,_55,_56,_57,_58}
+			 -| ['compiler_generated'] )> when 'true' ->
+			  %% Line 560
+			  case T of
+			    ( <( {'dict',_59,_60,_61,_rec42,_62,_63,_64,_65}
+				 -| ['compiler_generated'] )> when 'true' ->
+				  let <Slot1> =
+				      call 'erlang':'-'
+					  (_rec41, _rec42)
+				  in  %% Line 561
+				      case T of
+					( <( {'dict',_66,_67,_68,_69,_70,_71,_72,_rec43}
+					     -| ['compiler_generated'] )> when 'true' ->
+					      let <B1> =
+						  apply %% Line 562
+							'get_bucket_s'/2
+						      (_rec43, %% Line 562
+							       Slot1)
+					      in  let <B2> =
+						      apply %% Line 564
+							    'get_bucket_s'/2
+							  (_rec43, _rec41)
+						  in  let <_25> =
+							  call %% Line 565
+							       'erlang':%% Line 565
+									'++'
+							      (%% Line 565
+							       B1, %% Line 565
+								   B2)
+						      in  let <Segs1> =
+							      apply %% Line 565
+								    'put_bucket_s'/3
+								  (_rec43, %% Line 565
+									   Slot1, %% Line 565
+										  _25)
+							  in  let <Segs2> =
+								  apply %% Line 566
+									'put_bucket_s'/3
+								      (%% Line 566
+								       Segs1, _rec41, %% Line 566
+										      [])
+							      in  let <N1> =
+								      call %% Line 567
+									   'erlang':%% Line 567
+										    '-'
+									  (_rec41, %% Line 567
+										   1)
+								  in  %% Line 568
+								      case T of
+									( <( {'dict',_rec56,_73,_74,_75,_76,_77,_78,_79}
+									     -| ['compiler_generated'] )> when 'true' ->
+									      let <_rec44> =
+										  call 'erlang':'-'
+										      (_rec56, Dc)
+									      in  let <_rec45> =
+										      call %% Line 570
+											   'erlang':%% Line 570
+												    '*'
+											  (%% Line 570
+											   N1, %% Line 570
+											       5)
+										  in  let <_rec46> =
+											  call %% Line 571
+											       'erlang':%% Line 571
+													'*'
+											      (%% Line 571
+											       N1, %% Line 571
+												   3)
+										      in  case T of
+											    <{'dict',_rec48,_rec49,_rec50,_rec51,_rec52,_rec53,_rec54,_rec55}> when 'true' ->
+												let <_36> =
+												    {'dict',_rec44,%% Line 569
+														   N1,_rec50,_rec51,%% Line 570
+																    _rec45,%% Line 571
+																	   _rec46,_rec54,%% Line 572
+																			 Segs2}
+												in  apply 'maybe_contract_segs'/1
+													(_36)
+											    ( <_80> when 'true' ->
+												  ( primop 'match_fail'
+													(( {( 'badrecord'
+													      -| ['compiler_generated'] ),T}
+													   -| ['compiler_generated'] ))
+												    -| ['compiler_generated'] )
+											      -| ['compiler_generated'] )
+											  end
+									  -| ['compiler_generated'] )
+									( <_rec56> when 'true' ->
+									      ( primop 'match_fail'
+										    (( {( 'badrecord'
+											  -| ['compiler_generated'] ),_rec56}
+										       -| ['compiler_generated'] ))
+										-| ['compiler_generated'] )
+									  -| ['compiler_generated'] )
+								      end
+					  -| ['compiler_generated'] )
+					( <_rec43> when 'true' ->
+					      ( primop 'match_fail'
+						    (( {( 'badrecord'
+							  -| ['compiler_generated'] ),_rec43}
+						       -| ['compiler_generated'] ))
+						-| ['compiler_generated'] )
+					  -| ['compiler_generated'] )
+				      end
+			      -| ['compiler_generated'] )
+			    ( <_rec42> when 'true' ->
+				  ( primop 'match_fail'
+					(( {( 'badrecord'
+					      -| ['compiler_generated'] ),_rec42}
+					   -| ['compiler_generated'] ))
+				    -| ['compiler_generated'] )
+			      -| ['compiler_generated'] )
+			  end
+		      -| ['compiler_generated'] )
+		    ( <_rec41> when 'true' ->
+			  ( primop 'match_fail'
+				(( {( 'badrecord'
+				      -| ['compiler_generated'] ),_rec41}
+				   -| ['compiler_generated'] ))
+			    -| ['compiler_generated'] )
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 573
+	      <T,Dc> when 'true' ->
+		  case T of
+		    ( <( {'dict',_rec59,_81,_82,_83,_84,_85,_86,_87}
+			 -| ['compiler_generated'] )> when 'true' ->
+			  let <_rec57> =
+			      call 'erlang':'-'
+				  (_rec59, Dc)
+			  in  case T of
+				<{'dict',_88,_89,_90,_91,_92,_93,_94,_95}> when 'true' ->
+				    call 'erlang':'setelement'
+					(2, T, _rec57)
+				( <_96> when 'true' ->
+				      ( primop 'match_fail'
+					    (( {( 'badrecord'
+						  -| ['compiler_generated'] ),T}
+					       -| ['compiler_generated'] ))
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+			      end
+		      -| ['compiler_generated'] )
+		    ( <_rec59> when 'true' ->
+			  ( primop 'match_fail'
+				(( {( 'badrecord'
+				      -| ['compiler_generated'] ),_rec59}
+				   -| ['compiler_generated'] ))
+			    -| ['compiler_generated'] )
+		      -| ['compiler_generated'] )
+		  end
+	    end
+	    -| [{'function',{'maybe_contract',2}}] )
+      -| [{'function',{'maybe_contract',2}}] )
+'maybe_contract_segs'/1 =
+    %% Line 575
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'maybe_contract_segs',1}}] ) of
+	      <T = {'dict',_22,_23,_24,_25,_26,_27,_28,_29}>
+		  when ( try
+			  let <_6> =
+			      call 'erlang':'element'
+				  (3, T)
+			  in  let <_5> =
+				  call 'erlang':'element'
+				      (5, T)
+			      in  let <_7> =
+				      call 'erlang':'=:='
+					  (_6, _5)
+				  in  ( call ( 'erlang'
+					       -| ['compiler_generated'] ):( 'and'
+									     -| ['compiler_generated'] )
+					    (( 'true'
+					       -| ['compiler_generated'] ), _7)
+					-| ['compiler_generated'] )
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false'
+		      -| ['compiler_generated'] ) ->
+		  %% Line 576
+		  case T of
+		    ( <( {'dict',_30,_31,_rec64,_32,_33,_34,_35,_36}
+			 -| ['compiler_generated'] )> when 'true' ->
+			  let <_rec60> =
+			      call 'erlang':'div'
+				  (_rec64, 2)
+			  in  %% Line 577
+			      case T of
+				( <( {'dict',_37,_38,_39,_rec65,_40,_41,_42,_43}
+				     -| ['compiler_generated'] )> when 'true' ->
+				      let <_rec61> =
+					  call 'erlang':'div'
+					      (_rec65, 2)
+				      in  %% Line 578
+					  case T of
+					    ( <( {'dict',_44,_45,_46,_47,_48,_49,_50,_rec66}
+						 -| ['compiler_generated'] )> when 'true' ->
+						  let <_rec62> =
+						      apply 'contract_segs'/1
+							  (_rec66)
+						  in  case T of
+							<{'dict',_51,_52,_53,_54,_55,_56,_57,_58}> when 'true' ->
+							    let <_18> =
+								call 'erlang':'setelement'
+								    (9, T, _rec62)
+							    in  let <_19> =
+								    call 'erlang':'setelement'
+									(5, _18, _rec61)
+								in  call 'erlang':'setelement'
+									(4, _19, _rec60)
+							( <_59> when 'true' ->
+							      ( primop 'match_fail'
+								    (( {( 'badrecord'
+									  -| ['compiler_generated'] ),T}
+								       -| ['compiler_generated'] ))
+								-| ['compiler_generated'] )
+							  -| ['compiler_generated'] )
+						      end
+					      -| ['compiler_generated'] )
+					    ( <_rec66> when 'true' ->
+						  ( primop 'match_fail'
+							(( {( 'badrecord'
+							      -| ['compiler_generated'] ),_rec66}
+							   -| ['compiler_generated'] ))
+						    -| ['compiler_generated'] )
+					      -| ['compiler_generated'] )
+					  end
+				  -| ['compiler_generated'] )
+				( <_rec65> when 'true' ->
+				      ( primop 'match_fail'
+					    (( {( 'badrecord'
+						  -| ['compiler_generated'] ),_rec65}
+					       -| ['compiler_generated'] ))
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+			      end
+		      -| ['compiler_generated'] )
+		    ( <_rec64> when 'true' ->
+			  ( primop 'match_fail'
+				(( {( 'badrecord'
+				      -| ['compiler_generated'] ),_rec64}
+				   -| ['compiler_generated'] ))
+			    -| ['compiler_generated'] )
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 579
+	      <T> when 'true' ->
+		  T
+	    end
+	    -| [{'function',{'maybe_contract_segs',1}}] )
+      -| [{'function',{'maybe_contract_segs',1}}] )
+'rehash'/4 =
+    %% Line 584
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <[KeyBag = [Key|_X_Bag]|T],Slot1,Slot2,MaxN> when 'true' ->
+		  %% Line 585
+		  case apply 'rehash'/4
+			   (T, Slot1, Slot2, MaxN) of
+		    <[L1|L2]> when 'true' ->
+			%% Line 586
+			case call 'erlang':'phash'
+				 (Key, MaxN) of
+			  %% Line 587
+			  <_10>
+			      when call 'erlang':'=:='
+				    (_10,
+				     Slot1) ->
+			      [[KeyBag|L1]|L2]
+			  %% Line 588
+			  <_11>
+			      when call 'erlang':'=:='
+				    (_11,
+				     Slot2) ->
+			      [L1|[KeyBag|L2]]
+			  ( <_5> when 'true' ->
+				primop 'match_fail'
+				    ({'case_clause',_5})
+			    -| ['compiler_generated'] )
+			end
+		    ( <_4> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_4})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 590
+	      <[],_X_Slot1,_X_Slot2,_X_MaxN> when 'true' ->
+		  [[]]
+	      ( <_9,_8,_7,_6> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_9,_8,_7,_6}
+			     -| [{'function',{'rehash',4}}] ))
+		      -| [{'function',{'rehash',4}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'rehash',4}}] )
+      -| [{'function',{'rehash',4}}] )
+'mk_seg'/1 =
+    %% Line 594
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'mk_seg',1}}] ) of
+	      <16> when 'true' ->
+		  {[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]}
+	      ( <_1> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_1}
+			     -| [{'function',{'mk_seg',1}}] ))
+		      -| [{'function',{'mk_seg',1}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'mk_seg',1}}] )
+      -| [{'function',{'mk_seg',1}}] )
+'expand_segs'/2 =
+    %% Line 603
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <{B1},Empty> when 'true' ->
+		  %% Line 604
+		  {B1,Empty}
+	      %% Line 605
+	      <{B1,B2},Empty> when 'true' ->
+		  %% Line 606
+		  {B1,B2,Empty,Empty}
+	      %% Line 607
+	      <{B1,B2,B3,B4},Empty> when 'true' ->
+		  %% Line 608
+		  {B1,B2,B3,B4,Empty,Empty,Empty,Empty}
+	      %% Line 609
+	      <{B1,B2,B3,B4,B5,B6,B7,B8},Empty> when 'true' ->
+		  %% Line 610
+		  {B1,B2,B3,B4,B5,B6,B7,B8,%% Line 611
+					   Empty,%% Line 611
+						 Empty,%% Line 611
+						       Empty,%% Line 611
+							     Empty,%% Line 611
+								   Empty,%% Line 611
+									 Empty,%% Line 611
+									       Empty,%% Line 611
+										     Empty}
+	      %% Line 612
+	      <{B1,B2,B3,B4,B5,B6,B7,B8,B9,B10,B11,B12,B13,B14,B15,B16},Empty> when 'true' ->
+		  %% Line 613
+		  {B1,B2,B3,B4,B5,B6,B7,B8,B9,B10,B11,B12,B13,B14,B15,B16,%% Line 614
+									  Empty,%% Line 614
+										Empty,%% Line 614
+										      Empty,%% Line 614
+											    Empty,%% Line 614
+												  Empty,%% Line 614
+													Empty,%% Line 614
+													      Empty,%% Line 614
+														    Empty,%% Line 615
+															  Empty,%% Line 615
+																Empty,%% Line 615
+																      Empty,%% Line 615
+																	    Empty,%% Line 615
+																		  Empty,%% Line 615
+																			Empty,%% Line 615
+																			      Empty,%% Line 615
+																				    Empty}
+	      %% Line 616
+	      <Segs,Empty> when 'true' ->
+		  let <_4> =
+		      call %% Line 617
+			   'erlang':%% Line 617
+				    'tuple_to_list'
+			  (%% Line 617
+			   Segs)
+		  in  let <_2> =
+			  call %% Line 618
+			       'erlang':%% Line 618
+					'tuple_size'
+			      (%% Line 618
+			       Segs)
+		      in  let <_3> =
+			      call %% Line 618
+				   'lists':%% Line 618
+					   'duplicate'
+				  (%% Line 618
+				   _2, %% Line 618
+				       Empty)
+			  in  let <_5> =
+				  call %% Line 618
+				       'erlang':%% Line 618
+						'++'
+				      (%% Line 617
+				       _4, %% Line 618
+					   _3)
+			      in  %% Line 617
+				  call 'erlang':'list_to_tuple'
+				      (%% Line 618
+				       _5)
+	    end
+	    -| [{'function',{'expand_segs',2}}] )
+      -| [{'function',{'expand_segs',2}}] )
+'contract_segs'/1 =
+    %% Line 620
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'contract_segs',1}}] ) of
+	      <{B1,_6}> when 'true' ->
+		  %% Line 621
+		  {B1}
+	      %% Line 622
+	      <{B1,B2,_7,_8}> when 'true' ->
+		  %% Line 623
+		  {B1,B2}
+	      %% Line 624
+	      <{B1,B2,B3,B4,_9,_10,_11,_12}> when 'true' ->
+		  %% Line 625
+		  {B1,B2,B3,B4}
+	      %% Line 626
+	      <{B1,B2,B3,B4,B5,B6,B7,B8,_13,_14,_15,_16,_17,_18,_19,_20}> when 'true' ->
+		  %% Line 627
+		  {B1,B2,B3,B4,B5,B6,B7,B8}
+	      %% Line 628
+	      <{B1,B2,B3,B4,B5,B6,B7,B8,B9,B10,B11,B12,B13,B14,B15,B16,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36}> when 'true' ->
+		  %% Line 630
+		  {B1,B2,B3,B4,B5,B6,B7,B8,B9,B10,B11,B12,B13,B14,B15,B16}
+	      %% Line 631
+	      <Segs> when 'true' ->
+		  let <_1> =
+		      call %% Line 632
+			   'erlang':%% Line 632
+				    'tuple_size'
+			  (%% Line 632
+			   Segs)
+		  in  let <Ss> =
+			  call %% Line 632
+			       'erlang':%% Line 632
+					'div'
+			      (%% Line 632
+			       _1, %% Line 632
+				   2)
+		      in  let <_3> =
+			      call %% Line 633
+				   'erlang':%% Line 633
+					    'tuple_to_list'
+				  (%% Line 633
+				   Segs)
+			  in  let <_4> =
+				  call %% Line 633
+				       'lists':%% Line 633
+					       'sublist'
+				      (%% Line 633
+				       _3, %% Line 633
+					   1, %% Line 633
+					      Ss)
+			      in  %% Line 633
+				  call 'erlang':'list_to_tuple'
+				      (_4)
+	    end
+	    -| [{'function',{'contract_segs',1}}] )
+      -| [{'function',{'contract_segs',1}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('dict')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('dict', ( _0
+			 -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

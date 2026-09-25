@@ -1,0 +1,4 @@
+(executable
+ (name cerlex)
+ (public_name cerlex)
+ (libraries syntax semantics core_normalise sexplib zarith unix))

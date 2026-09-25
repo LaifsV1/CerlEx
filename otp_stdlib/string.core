@@ -1,0 +1,1851 @@
+module 'string' ['centre'/2,
+		 'centre'/3,
+		 'chars'/2,
+		 'chars'/3,
+		 'chr'/2,
+		 'concat'/2,
+		 'copies'/2,
+		 'cspan'/2,
+		 'is_empty'/1,
+		 'join'/2,
+		 'left'/2,
+		 'left'/3,
+		 'len'/1,
+		 'module_info'/0,
+		 'module_info'/1,
+		 'rchr'/2,
+		 'right'/2,
+		 'right'/3,
+		 'rstr'/2,
+		 'span'/2,
+		 'str'/2,
+		 'strip'/1,
+		 'strip'/2,
+		 'strip'/3,
+		 'sub_string'/2,
+		 'sub_string'/3,
+		 'sub_word'/2,
+		 'sub_word'/3,
+		 'substr'/2,
+		 'substr'/3,
+		 'to_lower'/1,
+		 'to_upper'/1,
+		 'tokens'/2,
+		 'words'/1,
+		 'words'/2]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[116|[114|[105|[110|[103|[95|[108|[105|[115|[116|[46|[101|[114|[108]]]]]]]]]]]]]]],1}]]
+'is_empty'/1 =
+    %% Line 24
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'is_empty',1}}] ) of
+	      <[]> when 'true' ->
+		  'true'
+	      %% Line 25
+	      <[_2|_3]> when 'true' ->
+		  'false'
+	      ( <_1> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_1}
+			     -| [{'function',{'is_empty',1}}] ))
+		      -| [{'function',{'is_empty',1}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'is_empty',1}}] )
+      -| [{'function',{'is_empty',1}}] )
+'len'/1 =
+    %% Line 27
+    ( fun (_0) ->
+	  call 'erlang':'length'
+	      (( _0
+		 -| [{'function',{'len',1}}] ))
+      -| [{'function',{'len',1}}] )
+'concat'/2 =
+    %% Line 29
+    ( fun (_0,_1) ->
+	  call 'erlang':'++'
+	      (_0, _1)
+      -| [{'function',{'concat',2}}] )
+'chr'/2 =
+    %% Line 31
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <S,C>
+		  when call 'erlang':'is_integer'
+			(C) ->
+		  apply 'chr'/3
+		      (S, C, 1)
+	      ( <_3,_2> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_3,_2}
+			     -| [{'function',{'chr',2}}] ))
+		      -| [{'function',{'chr',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'chr',2}}] )
+      -| [{'function',{'chr',2}}] )
+'chr'/3 =
+    %% Line 33
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <[C|_X_Cs],_7,I>
+		  when call 'erlang':'=:='
+			(_7,
+			 C) ->
+		  I
+	      %% Line 34
+	      <[_8|Cs],C,I> when 'true' ->
+		  let <_3> =
+		      call 'erlang':'+'
+			  (I, 1)
+		  in  apply 'chr'/3
+			  (Cs, C, _3)
+	      %% Line 35
+	      <[],_X_C,_X_I> when 'true' ->
+		  0
+	      ( <_6,_5,_4> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_6,_5,_4}
+			     -| [{'function',{'chr',3}}] ))
+		      -| [{'function',{'chr',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'chr',3}}] )
+      -| [{'function',{'chr',3}}] )
+'rchr'/2 =
+    %% Line 37
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <S,C>
+		  when call 'erlang':'is_integer'
+			(C) ->
+		  apply 'rchr'/4
+		      (S, C, 1, 0)
+	      ( <_3,_2> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_3,_2}
+			     -| [{'function',{'rchr',2}}] ))
+		      -| [{'function',{'rchr',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'rchr',2}}] )
+      -| [{'function',{'rchr',2}}] )
+'rchr'/4 =
+    %% Line 39
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <[C|Cs],_10,I,_X_L>
+		  when call 'erlang':'=:='
+			(_10,
+			 C) ->
+		  let <_4> =
+		      call %% Line 40
+			   'erlang':%% Line 40
+				    '+'
+			  (%% Line 40
+			   I, %% Line 40
+			      1)
+		  in  %% Line 40
+		      apply 'rchr'/4
+			  (Cs, C, _4, I)
+	      %% Line 41
+	      <[_11|Cs],C,I,L> when 'true' ->
+		  let <_5> =
+		      call %% Line 42
+			   'erlang':%% Line 42
+				    '+'
+			  (%% Line 42
+			   I, %% Line 42
+			      1)
+		  in  %% Line 42
+		      apply 'rchr'/4
+			  (Cs, C, _5, L)
+	      %% Line 43
+	      <[],_X_C,_X_I,L> when 'true' ->
+		  L
+	      ( <_9,_8,_7,_6> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_9,_8,_7,_6}
+			     -| [{'function',{'rchr',4}}] ))
+		      -| [{'function',{'rchr',4}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'rchr',4}}] )
+      -| [{'function',{'rchr',4}}] )
+'str'/2 =
+    %% Line 45
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <S,Sub>
+		  when call 'erlang':'is_list'
+			(Sub) ->
+		  apply 'str'/3
+		      (S, Sub, 1)
+	      ( <_3,_2> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_3,_2}
+			     -| [{'function',{'str',2}}] ))
+		      -| [{'function',{'str',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'str',2}}] )
+      -| [{'function',{'str',2}}] )
+'str'/3 =
+    %% Line 47
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <[C|S],[_9|Sub],I>
+		  when call 'erlang':'=:='
+			(_9,
+			 C) ->
+		  %% Line 48
+		  case apply 'l_prefix'/2
+			   (Sub, S) of
+		    %% Line 49
+		    <'true'> when 'true' ->
+			I
+		    %% Line 50
+		    <'false'> when 'true' ->
+			let <_3> =
+			    call 'erlang':'+'
+				(I, 1)
+			in  apply 'str'/3
+				(S, [C|Sub], _3)
+		    ( <_4> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_4})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 52
+	      <[_10|S],Sub,I> when 'true' ->
+		  let <_5> =
+		      call 'erlang':'+'
+			  (I, 1)
+		  in  apply 'str'/3
+			  (S, Sub, _5)
+	      %% Line 53
+	      <[],_X_Sub,_X_I> when 'true' ->
+		  0
+	      ( <_8,_7,_6> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_8,_7,_6}
+			     -| [{'function',{'str',3}}] ))
+		      -| [{'function',{'str',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'str',3}}] )
+      -| [{'function',{'str',3}}] )
+'rstr'/2 =
+    %% Line 55
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <S,Sub>
+		  when call 'erlang':'is_list'
+			(Sub) ->
+		  apply 'rstr'/4
+		      (S, Sub, 1, 0)
+	      ( <_3,_2> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_3,_2}
+			     -| [{'function',{'rstr',2}}] ))
+		      -| [{'function',{'rstr',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'rstr',2}}] )
+      -| [{'function',{'rstr',2}}] )
+'rstr'/4 =
+    %% Line 57
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <[C|S],[_12|Sub],I,L>
+		  when call 'erlang':'=:='
+			(_12,
+			 C) ->
+		  %% Line 58
+		  case apply 'l_prefix'/2
+			   (Sub, S) of
+		    %% Line 59
+		    <'true'> when 'true' ->
+			let <_4> =
+			    call 'erlang':'+'
+				(I, 1)
+			in  apply 'rstr'/4
+				(S, [C|Sub], _4, I)
+		    %% Line 60
+		    <'false'> when 'true' ->
+			let <_5> =
+			    call 'erlang':'+'
+				(I, 1)
+			in  apply 'rstr'/4
+				(S, [C|Sub], _5, L)
+		    ( <_6> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_6})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 62
+	      <[_13|S],Sub,I,L> when 'true' ->
+		  let <_7> =
+		      call 'erlang':'+'
+			  (I, 1)
+		  in  apply 'rstr'/4
+			  (S, Sub, _7, L)
+	      %% Line 63
+	      <[],_X_Sub,_X_I,L> when 'true' ->
+		  L
+	      ( <_11,_10,_9,_8> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_11,_10,_9,_8}
+			     -| [{'function',{'rstr',4}}] ))
+		      -| [{'function',{'rstr',4}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'rstr',4}}] )
+      -| [{'function',{'rstr',4}}] )
+'l_prefix'/2 =
+    %% Line 65
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[C|Pre],[_6|String]>
+		  when call 'erlang':'=:='
+			(_6,
+			 C) ->
+		  apply 'l_prefix'/2
+		      (Pre, String)
+	      %% Line 66
+	      <[],String>
+		  when call 'erlang':'is_list'
+			(String) ->
+		  'true'
+	      %% Line 67
+	      <Pre,String>
+		  when let <_2> =
+			call 'erlang':'is_list'
+			    (Pre)
+		    in  let <_3> =
+			    call 'erlang':'is_list'
+				(String)
+			in  call 'erlang':'and'
+				(_2, _3) ->
+		  'false'
+	      ( <_5,_4> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_5,_4}
+			     -| [{'function',{'l_prefix',2}}] ))
+		      -| [{'function',{'l_prefix',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'l_prefix',2}}] )
+      -| [{'function',{'l_prefix',2}}] )
+'span'/2 =
+    %% Line 69
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <S,Cs>
+		  when call 'erlang':'is_list'
+			(Cs) ->
+		  apply 'span'/3
+		      (S, Cs, 0)
+	      ( <_3,_2> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_3,_2}
+			     -| [{'function',{'span',2}}] ))
+		      -| [{'function',{'span',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'span',2}}] )
+      -| [{'function',{'span',2}}] )
+'span'/3 =
+    %% Line 71
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <[C|S],Cs,I> when 'true' ->
+		  %% Line 72
+		  case call 'lists':'member'
+			   (C, Cs) of
+		    %% Line 73
+		    <'true'> when 'true' ->
+			let <_3> =
+			    call 'erlang':'+'
+				(I, 1)
+			in  apply 'span'/3
+				(S, Cs, _3)
+		    %% Line 74
+		    <'false'> when 'true' ->
+			I
+		    ( <_4> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_4})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 76
+	      <[],_X_Cs,I> when 'true' ->
+		  I
+	      ( <_7,_6,_5> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_7,_6,_5}
+			     -| [{'function',{'span',3}}] ))
+		      -| [{'function',{'span',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'span',3}}] )
+      -| [{'function',{'span',3}}] )
+'cspan'/2 =
+    %% Line 78
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <S,Cs>
+		  when call 'erlang':'is_list'
+			(Cs) ->
+		  apply 'cspan'/3
+		      (S, Cs, 0)
+	      ( <_3,_2> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_3,_2}
+			     -| [{'function',{'cspan',2}}] ))
+		      -| [{'function',{'cspan',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'cspan',2}}] )
+      -| [{'function',{'cspan',2}}] )
+'cspan'/3 =
+    %% Line 80
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <[C|S],Cs,I> when 'true' ->
+		  %% Line 81
+		  case call 'lists':'member'
+			   (C, Cs) of
+		    %% Line 82
+		    <'true'> when 'true' ->
+			I
+		    %% Line 83
+		    <'false'> when 'true' ->
+			let <_3> =
+			    call 'erlang':'+'
+				(I, 1)
+			in  apply 'cspan'/3
+				(S, Cs, _3)
+		    ( <_4> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_4})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 85
+	      <[],_X_Cs,I> when 'true' ->
+		  I
+	      ( <_7,_6,_5> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_7,_6,_5}
+			     -| [{'function',{'cspan',3}}] ))
+		      -| [{'function',{'cspan',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'cspan',3}}] )
+      -| [{'function',{'cspan',3}}] )
+'substr'/2 =
+    %% Line 87
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <String,1>
+		  when call 'erlang':'is_list'
+			(String) ->
+		  %% Line 88
+		  String
+	      %% Line 89
+	      <String,S>
+		  when let <_2> =
+			call 'erlang':'is_integer'
+			    (S)
+		    in  let <_3> =
+			    call 'erlang':'>'
+				(S, 1)
+			in  call 'erlang':'and'
+				(_2, _3) ->
+		  %% Line 90
+		  apply 'substr2'/2
+		      (String, S)
+	      ( <_5,_4> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_5,_4}
+			     -| [{'function',{'substr',2}}] ))
+		      -| [{'function',{'substr',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'substr',2}}] )
+      -| [{'function',{'substr',2}}] )
+'substr'/3 =
+    %% Line 92
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <String,S,L>
+		  when try
+			let <_3> =
+			    call 'erlang':'is_integer'
+				(S)
+			in  let <_4> =
+				call 'erlang':'>='
+				    (S, 1)
+			    in  let <_5> =
+				    call 'erlang':'is_integer'
+					(L)
+				in  let <_6> =
+					call 'erlang':'>='
+					    (L, 0)
+				    in  let <_7> =
+					    call 'erlang':'and'
+						(_5, _6)
+					in  let <_8> =
+						call 'erlang':'and'
+						    (_4, _7)
+					    in  call 'erlang':'and'
+						    (_3, _8)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  let <_9> =
+		      apply %% Line 93
+			    'substr2'/2
+			  (%% Line 93
+			   String, %% Line 93
+				   S)
+		  in  %% Line 93
+		      apply 'substr1'/2
+			  (_9, L)
+	      ( <_12,_11,_10> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_12,_11,_10}
+			     -| [{'function',{'substr',3}}] ))
+		      -| [{'function',{'substr',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'substr',3}}] )
+      -| [{'function',{'substr',3}}] )
+'substr1'/2 =
+    %% Line 95
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[C|String],L>
+		  when call 'erlang':'>'
+			(L,
+			 0) ->
+		  let <_2> =
+		      call 'erlang':'-'
+			  (L, 1)
+		  in  let <_3> =
+			  apply 'substr1'/2
+			      (String, _2)
+		      in  [C|_3]
+	      %% Line 96
+	      <String,_X_L>
+		  when call 'erlang':'is_list'
+			(String) ->
+		  []
+	      ( <_5,_4> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_5,_4}
+			     -| [{'function',{'substr1',2}}] ))
+		      -| [{'function',{'substr1',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'substr1',2}}] )
+      -| [{'function',{'substr1',2}}] )
+'substr2'/2 =
+    %% Line 98
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <String,1>
+		  when call 'erlang':'is_list'
+			(String) ->
+		  String
+	      %% Line 99
+	      <[_5|String],S> when 'true' ->
+		  let <_2> =
+		      call 'erlang':'-'
+			  (S, 1)
+		  in  apply 'substr2'/2
+			  (String, _2)
+	      ( <_4,_3> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_4,_3}
+			     -| [{'function',{'substr2',2}}] ))
+		      -| [{'function',{'substr2',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'substr2',2}}] )
+      -| [{'function',{'substr2',2}}] )
+'tokens'/2 =
+    %% Line 101
+    ( fun (_0,_1) ->
+	  %% Line 102
+	  case _1 of
+	    %% Line 103
+	    <[]> when 'true' ->
+		%% Line 104
+		case _0 of
+		  %% Line 105
+		  <[]> when 'true' ->
+		      []
+		  %% Line 106
+		  <[_8|_9]> when 'true' ->
+		      [_0|[]]
+		  ( <_2> when 'true' ->
+			primop 'match_fail'
+			    ({'case_clause',_2})
+		    -| ['compiler_generated'] )
+		end
+	    %% Line 108
+	    <[C|[]]> when 'true' ->
+		let <_3> =
+		    call %% Line 109
+			 'lists':%% Line 109
+				 'reverse'
+			(_0)
+		in  %% Line 109
+		    apply 'tokens_single_1'/3
+			(_3, C, [])
+	    %% Line 110
+	    <[_10|_11]> when 'true' ->
+		let <_4> =
+		    call %% Line 111
+			 'lists':%% Line 111
+				 'reverse'
+			(_0)
+		in  %% Line 111
+		    apply 'tokens_multiple_1'/3
+			(_4, _1, [])
+	    ( <_5> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_5})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'tokens',2}}] )
+'tokens_single_1'/3 =
+    %% Line 114
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <[Sep|S],_6,Toks>
+		  when call 'erlang':'=:='
+			(_6,
+			 Sep) ->
+		  %% Line 115
+		  apply 'tokens_single_1'/3
+		      (S, Sep, Toks)
+	      %% Line 116
+	      <[C|S],Sep,Toks> when 'true' ->
+		  %% Line 117
+		  apply 'tokens_single_2'/4
+		      (S, Sep, Toks, [C|[]])
+	      %% Line 118
+	      <[],_7,Toks> when 'true' ->
+		  %% Line 119
+		  Toks
+	      ( <_5,_4,_3> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_5,_4,_3}
+			     -| [{'function',{'tokens_single_1',3}}] ))
+		      -| [{'function',{'tokens_single_1',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'tokens_single_1',3}}] )
+      -| [{'function',{'tokens_single_1',3}}] )
+'tokens_single_2'/4 =
+    %% Line 121
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <[Sep|S],_8,Toks,Tok>
+		  when call 'erlang':'=:='
+			(_8,
+			 Sep) ->
+		  %% Line 122
+		  apply 'tokens_single_1'/3
+		      (S, Sep, [Tok|Toks])
+	      %% Line 123
+	      <[C|S],Sep,Toks,Tok> when 'true' ->
+		  %% Line 124
+		  apply 'tokens_single_2'/4
+		      (S, Sep, Toks, [C|Tok])
+	      %% Line 125
+	      <[],_X_Sep,Toks,Tok> when 'true' ->
+		  %% Line 126
+		  [Tok|Toks]
+	      ( <_7,_6,_5,_4> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_7,_6,_5,_4}
+			     -| [{'function',{'tokens_single_2',4}}] ))
+		      -| [{'function',{'tokens_single_2',4}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'tokens_single_2',4}}] )
+      -| [{'function',{'tokens_single_2',4}}] )
+'tokens_multiple_1'/3 =
+    %% Line 128
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <[C|S],Seps,Toks> when 'true' ->
+		  %% Line 129
+		  case call 'lists':'member'
+			   (C, Seps) of
+		    %% Line 130
+		    <'true'> when 'true' ->
+			apply 'tokens_multiple_1'/3
+			    (S, Seps, Toks)
+		    %% Line 131
+		    <'false'> when 'true' ->
+			apply 'tokens_multiple_2'/4
+			    (S, Seps, Toks, [C|[]])
+		    ( <_3> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_3})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 133
+	      <[],_X_Seps,Toks> when 'true' ->
+		  %% Line 134
+		  Toks
+	      ( <_6,_5,_4> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_6,_5,_4}
+			     -| [{'function',{'tokens_multiple_1',3}}] ))
+		      -| [{'function',{'tokens_multiple_1',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'tokens_multiple_1',3}}] )
+      -| [{'function',{'tokens_multiple_1',3}}] )
+'tokens_multiple_2'/4 =
+    %% Line 136
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <[C|S],Seps,Toks,Tok> when 'true' ->
+		  %% Line 137
+		  case call 'lists':'member'
+			   (C, Seps) of
+		    %% Line 138
+		    <'true'> when 'true' ->
+			apply 'tokens_multiple_1'/3
+			    (S, Seps, [Tok|Toks])
+		    %% Line 139
+		    <'false'> when 'true' ->
+			apply 'tokens_multiple_2'/4
+			    (S, Seps, Toks, [C|Tok])
+		    ( <_4> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_4})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 141
+	      <[],_X_Seps,Toks,Tok> when 'true' ->
+		  %% Line 142
+		  [Tok|Toks]
+	      ( <_8,_7,_6,_5> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_8,_7,_6,_5}
+			     -| [{'function',{'tokens_multiple_2',4}}] ))
+		      -| [{'function',{'tokens_multiple_2',4}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'tokens_multiple_2',4}}] )
+      -| [{'function',{'tokens_multiple_2',4}}] )
+'chars'/2 =
+    %% Line 144
+    ( fun (_0,_1) ->
+	  apply 'chars'/3
+	      (_0, _1, [])
+      -| [{'function',{'chars',2}}] )
+'chars'/3 =
+    %% Line 146
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <C,N,Tail>
+		  when call 'erlang':'>'
+			(N,
+			 0) ->
+		  let <_3> =
+		      call %% Line 147
+			   'erlang':%% Line 147
+				    '-'
+			  (%% Line 147
+			   N, %% Line 147
+			      1)
+		  in  %% Line 147
+		      apply 'chars'/3
+			  (C, _3, [C|Tail])
+	      %% Line 148
+	      <C,0,Tail>
+		  when call 'erlang':'is_integer'
+			(C) ->
+		  %% Line 149
+		  Tail
+	      ( <_6,_5,_4> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_6,_5,_4}
+			     -| [{'function',{'chars',3}}] ))
+		      -| [{'function',{'chars',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'chars',3}}] )
+      -| [{'function',{'chars',3}}] )
+'copies'/2 =
+    %% Line 151
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <CharList,Num>
+		  when try
+			let <_2> =
+			    call 'erlang':'is_list'
+				(CharList)
+			in  let <_3> =
+				call 'erlang':'is_integer'
+				    (Num)
+			    in  let <_4> =
+				    call 'erlang':'>='
+					(Num, 0)
+				in  let <_5> =
+					call 'erlang':'and'
+					    (_3, _4)
+				    in  call 'erlang':'and'
+					    (_2, _5)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 152
+		  apply 'copies'/3
+		      (CharList, Num, [])
+	      ( <_7,_6> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_7,_6}
+			     -| [{'function',{'copies',2}}] ))
+		      -| [{'function',{'copies',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'copies',2}}] )
+      -| [{'function',{'copies',2}}] )
+'copies'/3 =
+    %% Line 154
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <_X_CharList,0,R> when 'true' ->
+		  %% Line 155
+		  R
+	      %% Line 156
+	      <CharList,Num,R> when 'true' ->
+		  let <_4> =
+		      call %% Line 157
+			   'erlang':%% Line 157
+				    '-'
+			  (%% Line 157
+			   Num, %% Line 157
+				1)
+		  in  let <_3> =
+			  call %% Line 157
+			       'erlang':%% Line 157
+					'++'
+			      (%% Line 157
+			       CharList, %% Line 157
+					 R)
+		      in  %% Line 157
+			  apply 'copies'/3
+			      (CharList, _4, _3)
+	    end
+	    -| [{'function',{'copies',3}}] )
+      -| [{'function',{'copies',3}}] )
+'words'/1 =
+    %% Line 159
+    ( fun (_0) ->
+	  apply 'words'/2
+	      (( _0
+		 -| [{'function',{'words',1}}] ), 32)
+      -| [{'function',{'words',1}}] )
+'words'/2 =
+    %% Line 161
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <String,Char>
+		  when call 'erlang':'is_integer'
+			(Char) ->
+		  let <_2> =
+		      apply %% Line 162
+			    'strip'/3
+			  (%% Line 162
+			   String, %% Line 162
+				   'both', %% Line 162
+					   Char)
+		  in  %% Line 162
+		      apply 'w_count'/3
+			  (_2, Char, 0)
+	      ( <_4,_3> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_4,_3}
+			     -| [{'function',{'words',2}}] ))
+		      -| [{'function',{'words',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'words',2}}] )
+      -| [{'function',{'words',2}}] )
+'w_count'/3 =
+    %% Line 164
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <[],_8,Num> when 'true' ->
+		  call 'erlang':'+'
+		      (Num, 1)
+	      %% Line 165
+	      <[H|T],_9,Num>
+		  when call 'erlang':'=:='
+			(_9,
+			 H) ->
+		  let <_4> =
+		      apply 'strip'/3
+			  (T, 'left', H)
+		  in  let <_3> =
+			  call 'erlang':'+'
+			      (Num, 1)
+		      in  apply 'w_count'/3
+			      (_4, H, _3)
+	      %% Line 166
+	      <[_X_H|T],Char,Num> when 'true' ->
+		  apply 'w_count'/3
+		      (T, Char, Num)
+	      ( <_7,_6,_5> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_7,_6,_5}
+			     -| [{'function',{'w_count',3}}] ))
+		      -| [{'function',{'w_count',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'w_count',3}}] )
+      -| [{'function',{'w_count',3}}] )
+'sub_word'/2 =
+    %% Line 168
+    ( fun (_0,_1) ->
+	  apply 'sub_word'/3
+	      (_0, _1, 32)
+      -| [{'function',{'sub_word',2}}] )
+'sub_word'/3 =
+    %% Line 170
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <String,Index,Char>
+		  when let <_3> =
+			call 'erlang':'is_integer'
+			    (Index)
+		    in  let <_4> =
+			    call 'erlang':'is_integer'
+				(Char)
+			in  call 'erlang':'and'
+				(_3, _4) ->
+		  %% Line 171
+		  case apply 'words'/2
+			   (String, Char) of
+		    %% Line 172
+		    <Num>
+			when call 'erlang':'<'
+			      (Num,
+			       Index) ->
+			%% Line 173
+			[]
+		    %% Line 174
+		    <_X_Num> when 'true' ->
+			let <_5> =
+			    apply %% Line 175
+				  'strip'/3
+				(%% Line 175
+				 String, %% Line 175
+					 'left', %% Line 175
+						 Char)
+			in  %% Line 175
+			    apply 's_word'/5
+				(_5, Index, Char, 1, [])
+		  end
+	      ( <_9,_8,_7> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_9,_8,_7}
+			     -| [{'function',{'sub_word',3}}] ))
+		      -| [{'function',{'sub_word',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'sub_word',3}}] )
+      -| [{'function',{'sub_word',3}}] )
+'s_word'/5 =
+    %% Line 178
+    ( fun (_0,_1,_2,_3,_4) ->
+	  ( case <_0,_1,_2,_3,_4> of
+	      <[],_12,_13,_14,Res> when 'true' ->
+		  call 'lists':'reverse'
+		      (Res)
+	      %% Line 179
+	      <[Char|_15],Index,_16,_17,Res>
+		  when let <_18> =
+			call 'erlang':'=:='
+			    (_16, Char)
+		    in  let <_19> =
+			    call 'erlang':'=:='
+				(_17, Index)
+			in  call 'erlang':'and'
+				(_18, _19) ->
+		  call 'lists':'reverse'
+		      (Res)
+	      %% Line 180
+	      <[H|T],Index,Char,_20,Res>
+		  when call 'erlang':'=:='
+			(_20,
+			 Index) ->
+		  apply 's_word'/5
+		      (T, Index, Char, Index, [H|Res])
+	      %% Line 181
+	      <[Char|T],Stop,_21,Index,Res>
+		  when let <_22> =
+			call 'erlang':'=:='
+			    (_21, Char)
+		    in  let <_23> =
+			    call 'erlang':'<'
+				(Index, Stop)
+			in  call 'erlang':'and'
+				(_22, _23) ->
+		  let <_6> =
+		      apply %% Line 182
+			    'strip'/3
+			  (%% Line 182
+			   T, %% Line 182
+			      'left', %% Line 182
+				      Char)
+		  in  let <_5> =
+			  call %% Line 182
+			       'erlang':%% Line 182
+					'+'
+			      (%% Line 182
+			       Index, %% Line 182
+				      1)
+		      in  %% Line 182
+			  apply 's_word'/5
+			      (_6, Stop, Char, _5, Res)
+	      %% Line 183
+	      <[_24|T],Stop,Char,Index,Res>
+		  when call 'erlang':'<'
+			(Index,
+			 Stop) ->
+		  %% Line 184
+		  apply 's_word'/5
+		      (T, Stop, Char, Index, Res)
+	      ( <_11,_10,_9,_8,_7> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_11,_10,_9,_8,_7}
+			     -| [{'function',{'s_word',5}}] ))
+		      -| [{'function',{'s_word',5}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'s_word',5}}] )
+      -| [{'function',{'s_word',5}}] )
+'strip'/1 =
+    %% Line 186
+    ( fun (_0) ->
+	  apply 'strip'/2
+	      (( _0
+		 -| [{'function',{'strip',1}}] ), 'both')
+      -| [{'function',{'strip',1}}] )
+'strip'/2 =
+    %% Line 188
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <String,'left'> when 'true' ->
+		  apply 'strip_left'/2
+		      (String, 32)
+	      %% Line 189
+	      <String,'right'> when 'true' ->
+		  apply 'strip_right'/2
+		      (String, 32)
+	      %% Line 190
+	      <String,'both'> when 'true' ->
+		  let <_2> =
+		      apply %% Line 191
+			    'strip_left'/2
+			  (%% Line 191
+			   String, %% Line 191
+				   32)
+		  in  %% Line 191
+		      apply 'strip_right'/2
+			  (_2, 32)
+	      ( <_4,_3> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_4,_3}
+			     -| [{'function',{'strip',2}}] ))
+		      -| [{'function',{'strip',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'strip',2}}] )
+      -| [{'function',{'strip',2}}] )
+'strip'/3 =
+    %% Line 193
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <String,'right',Char> when 'true' ->
+		  apply 'strip_right'/2
+		      (String, Char)
+	      %% Line 194
+	      <String,'left',Char> when 'true' ->
+		  apply 'strip_left'/2
+		      (String, Char)
+	      %% Line 195
+	      <String,'both',Char> when 'true' ->
+		  let <_3> =
+		      apply %% Line 196
+			    'strip_left'/2
+			  (%% Line 196
+			   String, %% Line 196
+				   Char)
+		  in  %% Line 196
+		      apply 'strip_right'/2
+			  (_3, Char)
+	      ( <_6,_5,_4> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_6,_5,_4}
+			     -| [{'function',{'strip',3}}] ))
+		      -| [{'function',{'strip',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'strip',3}}] )
+      -| [{'function',{'strip',3}}] )
+'strip_left'/2 =
+    %% Line 198
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[Sc|S],_4>
+		  when call 'erlang':'=:='
+			(_4,
+			 Sc) ->
+		  %% Line 199
+		  apply 'strip_left'/2
+		      (S, Sc)
+	      %% Line 200
+	      <S = [_5|_6],Sc>
+		  when call 'erlang':'is_integer'
+			(Sc) ->
+		  S
+	      %% Line 201
+	      <[],Sc>
+		  when call 'erlang':'is_integer'
+			(Sc) ->
+		  []
+	      ( <_3,_2> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_3,_2}
+			     -| [{'function',{'strip_left',2}}] ))
+		      -| [{'function',{'strip_left',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'strip_left',2}}] )
+      -| [{'function',{'strip_left',2}}] )
+'strip_right'/2 =
+    %% Line 203
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[Sc|S],_6>
+		  when call 'erlang':'=:='
+			(_6,
+			 Sc) ->
+		  %% Line 204
+		  case apply 'strip_right'/2
+			   (S, Sc) of
+		    %% Line 205
+		    <[]> when 'true' ->
+			[]
+		    %% Line 206
+		    <T> when 'true' ->
+			[Sc|T]
+		  end
+	      %% Line 208
+	      <[C|S],Sc> when 'true' ->
+		  let <_3> =
+		      apply %% Line 209
+			    'strip_right'/2
+			  (%% Line 209
+			   S, %% Line 209
+			      Sc)
+		  in  %% Line 209
+		      [C|_3]
+	      %% Line 210
+	      <[],Sc>
+		  when call 'erlang':'is_integer'
+			(Sc) ->
+		  %% Line 211
+		  []
+	      ( <_5,_4> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_5,_4}
+			     -| [{'function',{'strip_right',2}}] ))
+		      -| [{'function',{'strip_right',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'strip_right',2}}] )
+      -| [{'function',{'strip_right',2}}] )
+'left'/2 =
+    %% Line 213
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <String,Len>
+		  when call 'erlang':'is_integer'
+			(Len) ->
+		  apply 'left'/3
+		      (String, Len, 32)
+	      ( <_3,_2> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_3,_2}
+			     -| [{'function',{'left',2}}] ))
+		      -| [{'function',{'left',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'left',2}}] )
+      -| [{'function',{'left',2}}] )
+'left'/3 =
+    %% Line 215
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <String,Len,Char>
+		  when call 'erlang':'is_integer'
+			(Char) ->
+		  let <Slen> =
+		      call %% Line 216
+			   'erlang':%% Line 216
+				    'length'
+			  (%% Line 216
+			   String)
+		  in  %% Line 217
+		      case <> of
+			%% Line 218
+			<>
+			    when call 'erlang':'>'
+				  (Slen,
+				   Len) ->
+			    apply 'substr'/3
+				(String, 1, Len)
+			%% Line 219
+			<>
+			    when call 'erlang':'<'
+				  (Slen,
+				   Len) ->
+			    let <_4> =
+				call 'erlang':'-'
+				    (Len, Slen)
+			    in  apply 'l_pad'/3
+				    (String, _4, Char)
+			%% Line 220
+			<>
+			    when call 'erlang':'=:='
+				  (Slen,
+				   Len) ->
+			    String
+			( <> when 'true' ->
+			      primop 'match_fail'
+				  ('if_clause')
+			  -| ['compiler_generated'] )
+		      end
+	      ( <_7,_6,_5> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_7,_6,_5}
+			     -| [{'function',{'left',3}}] ))
+		      -| [{'function',{'left',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'left',3}}] )
+      -| [{'function',{'left',3}}] )
+'l_pad'/3 =
+    %% Line 223
+    ( fun (_0,_1,_2) ->
+	  let <_3> =
+	      apply 'chars'/2
+		  (_2, _1)
+	  in  call 'erlang':'++'
+		  (_0, _3)
+      -| [{'function',{'l_pad',3}}] )
+'right'/2 =
+    %% Line 225
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <String,Len>
+		  when call 'erlang':'is_integer'
+			(Len) ->
+		  apply 'right'/3
+		      (String, Len, 32)
+	      ( <_3,_2> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_3,_2}
+			     -| [{'function',{'right',2}}] ))
+		      -| [{'function',{'right',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'right',2}}] )
+      -| [{'function',{'right',2}}] )
+'right'/3 =
+    %% Line 227
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <String,Len,Char>
+		  when call 'erlang':'is_integer'
+			(Char) ->
+		  let <Slen> =
+		      call %% Line 228
+			   'erlang':%% Line 228
+				    'length'
+			  (%% Line 228
+			   String)
+		  in  %% Line 229
+		      case <> of
+			%% Line 230
+			<>
+			    when call 'erlang':'>'
+				  (Slen,
+				   Len) ->
+			    let <_4> =
+				call 'erlang':'-'
+				    (Slen, Len)
+			    in  let <_5> =
+				    call 'erlang':'+'
+					(_4, 1)
+				in  apply 'substr'/2
+					(String, _5)
+			%% Line 231
+			<>
+			    when call 'erlang':'<'
+				  (Slen,
+				   Len) ->
+			    let <_6> =
+				call 'erlang':'-'
+				    (Len, Slen)
+			    in  apply 'r_pad'/3
+				    (String, _6, Char)
+			%% Line 232
+			<>
+			    when call 'erlang':'=:='
+				  (Slen,
+				   Len) ->
+			    String
+			( <> when 'true' ->
+			      primop 'match_fail'
+				  ('if_clause')
+			  -| ['compiler_generated'] )
+		      end
+	      ( <_9,_8,_7> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_9,_8,_7}
+			     -| [{'function',{'right',3}}] ))
+		      -| [{'function',{'right',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'right',3}}] )
+      -| [{'function',{'right',3}}] )
+'r_pad'/3 =
+    %% Line 235
+    ( fun (_0,_1,_2) ->
+	  apply 'chars'/3
+	      (_2, _1, _0)
+      -| [{'function',{'r_pad',3}}] )
+'centre'/2 =
+    %% Line 237
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <String,Len>
+		  when call 'erlang':'is_integer'
+			(Len) ->
+		  apply 'centre'/3
+		      (String, Len, 32)
+	      ( <_3,_2> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_3,_2}
+			     -| [{'function',{'centre',2}}] ))
+		      -| [{'function',{'centre',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'centre',2}}] )
+      -| [{'function',{'centre',2}}] )
+'centre'/3 =
+    %% Line 239
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <String,0,Char>
+		  when let <_3> =
+			call 'erlang':'is_list'
+			    (String)
+		    in  let <_4> =
+			    call 'erlang':'is_integer'
+				(Char)
+			in  call 'erlang':'and'
+				(_3, _4) ->
+		  %% Line 240
+		  []
+	      %% Line 241
+	      <String,Len,Char>
+		  when call 'erlang':'is_integer'
+			(Char) ->
+		  let <Slen> =
+		      call %% Line 242
+			   'erlang':%% Line 242
+				    'length'
+			  (%% Line 242
+			   String)
+		  in  %% Line 243
+		      case <> of
+			%% Line 244
+			<>
+			    when call 'erlang':'>'
+				  (Slen,
+				   Len) ->
+			    let <_6> =
+				call 'erlang':'-'
+				    (Slen, Len)
+			    in  let <_7> =
+				    call 'erlang':'div'
+					(_6, 2)
+				in  let <_8> =
+					call 'erlang':'+'
+					    (_7, 1)
+				    in  apply 'substr'/3
+					    (String, _8, Len)
+			%% Line 245
+			<>
+			    when call 'erlang':'<'
+				  (Slen,
+				   Len) ->
+			    let <_9> =
+				call %% Line 246
+				     'erlang':%% Line 246
+					      '-'
+				    (%% Line 246
+				     Len, %% Line 246
+					  Slen)
+			    in  let <N> =
+				    call %% Line 246
+					 'erlang':%% Line 246
+						  'div'
+					(%% Line 246
+					 _9, %% Line 246
+					     2)
+				in  let <_11> =
+					call %% Line 247
+					     'erlang':%% Line 247
+						      '+'
+					    (%% Line 247
+					     Slen, %% Line 247
+						   N)
+				    in  let <_12> =
+					    call %% Line 247
+						 'erlang':%% Line 247
+							  '-'
+						(%% Line 247
+						 Len, %% Line 247
+						      _11)
+					in  let <_13> =
+						apply %% Line 247
+						      'l_pad'/3
+						    (%% Line 247
+						     String, %% Line 247
+							     _12, %% Line 247
+								  Char)
+					    in  %% Line 247
+						apply 'r_pad'/3
+						    (_13, N, Char)
+			%% Line 248
+			<>
+			    when call 'erlang':'=:='
+				  (Slen,
+				   Len) ->
+			    String
+			( <> when 'true' ->
+			      primop 'match_fail'
+				  ('if_clause')
+			  -| ['compiler_generated'] )
+		      end
+	      ( <_16,_15,_14> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_16,_15,_14}
+			     -| [{'function',{'centre',3}}] ))
+		      -| [{'function',{'centre',3}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'centre',3}}] )
+      -| [{'function',{'centre',3}}] )
+'sub_string'/2 =
+    %% Line 251
+    ( fun (_0,_1) ->
+	  apply 'substr'/2
+	      (_0, _1)
+      -| [{'function',{'sub_string',2}}] )
+'sub_string'/3 =
+    %% Line 253
+    ( fun (_0,_1,_2) ->
+	  let <_3> =
+	      call 'erlang':'-'
+		  (_2, _1)
+	  in  let <_4> =
+		  call 'erlang':'+'
+		      (_3, 1)
+	      in  apply 'substr'/3
+		      (_0, _1, _4)
+      -| [{'function',{'sub_string',3}}] )
+'to_lower_char'/1 =
+    %% Line 255
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'to_lower_char',1}}] ) of
+	      <C>
+		  when try
+			let <_1> =
+			    call 'erlang':'is_integer'
+				(( _0
+				   -| [{'function',{'to_lower_char',1}}] ))
+			in  let <_2> =
+				call 'erlang':'=<'
+				    (65, ( _0
+					   -| [{'function',{'to_lower_char',1}}] ))
+			    in  let <_3> =
+				    call 'erlang':'=<'
+					(( _0
+					   -| [{'function',{'to_lower_char',1}}] ), 90)
+				in  let <_4> =
+					call 'erlang':'and'
+					    (_2, _3)
+				    in  call 'erlang':'and'
+					    (_1, _4)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 256
+		  call 'erlang':'+'
+		      (C, 32)
+	      %% Line 257
+	      <C>
+		  when try
+			let <_5> =
+			    call 'erlang':'is_integer'
+				(( _0
+				   -| [{'function',{'to_lower_char',1}}] ))
+			in  let <_6> =
+				call 'erlang':'=<'
+				    (192, ( _0
+					    -| [{'function',{'to_lower_char',1}}] ))
+			    in  let <_7> =
+				    call 'erlang':'=<'
+					(( _0
+					   -| [{'function',{'to_lower_char',1}}] ), 214)
+				in  let <_8> =
+					call 'erlang':'and'
+					    (_6, _7)
+				    in  call 'erlang':'and'
+					    (_5, _8)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 258
+		  call 'erlang':'+'
+		      (C, 32)
+	      %% Line 259
+	      <C>
+		  when try
+			let <_9> =
+			    call 'erlang':'is_integer'
+				(( _0
+				   -| [{'function',{'to_lower_char',1}}] ))
+			in  let <_10> =
+				call 'erlang':'=<'
+				    (216, ( _0
+					    -| [{'function',{'to_lower_char',1}}] ))
+			    in  let <_11> =
+				    call 'erlang':'=<'
+					(( _0
+					   -| [{'function',{'to_lower_char',1}}] ), 222)
+				in  let <_12> =
+					call 'erlang':'and'
+					    (_10, _11)
+				    in  call 'erlang':'and'
+					    (_9, _12)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 260
+		  call 'erlang':'+'
+		      (C, 32)
+	      %% Line 261
+	      <C> when 'true' ->
+		  %% Line 262
+		  C
+	    end
+	    -| [{'function',{'to_lower_char',1}}] )
+      -| [{'function',{'to_lower_char',1}}] )
+'to_upper_char'/1 =
+    %% Line 264
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'to_upper_char',1}}] ) of
+	      <C>
+		  when try
+			let <_1> =
+			    call 'erlang':'is_integer'
+				(( _0
+				   -| [{'function',{'to_upper_char',1}}] ))
+			in  let <_2> =
+				call 'erlang':'=<'
+				    (97, ( _0
+					   -| [{'function',{'to_upper_char',1}}] ))
+			    in  let <_3> =
+				    call 'erlang':'=<'
+					(( _0
+					   -| [{'function',{'to_upper_char',1}}] ), 122)
+				in  let <_4> =
+					call 'erlang':'and'
+					    (_2, _3)
+				    in  call 'erlang':'and'
+					    (_1, _4)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 265
+		  call 'erlang':'-'
+		      (C, 32)
+	      %% Line 266
+	      <C>
+		  when try
+			let <_5> =
+			    call 'erlang':'is_integer'
+				(( _0
+				   -| [{'function',{'to_upper_char',1}}] ))
+			in  let <_6> =
+				call 'erlang':'=<'
+				    (224, ( _0
+					    -| [{'function',{'to_upper_char',1}}] ))
+			    in  let <_7> =
+				    call 'erlang':'=<'
+					(( _0
+					   -| [{'function',{'to_upper_char',1}}] ), 246)
+				in  let <_8> =
+					call 'erlang':'and'
+					    (_6, _7)
+				    in  call 'erlang':'and'
+					    (_5, _8)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 267
+		  call 'erlang':'-'
+		      (C, 32)
+	      %% Line 268
+	      <C>
+		  when try
+			let <_9> =
+			    call 'erlang':'is_integer'
+				(( _0
+				   -| [{'function',{'to_upper_char',1}}] ))
+			in  let <_10> =
+				call 'erlang':'=<'
+				    (248, ( _0
+					    -| [{'function',{'to_upper_char',1}}] ))
+			    in  let <_11> =
+				    call 'erlang':'=<'
+					(( _0
+					   -| [{'function',{'to_upper_char',1}}] ), 254)
+				in  let <_12> =
+					call 'erlang':'and'
+					    (_10, _11)
+				    in  call 'erlang':'and'
+					    (_9, _12)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 269
+		  call 'erlang':'-'
+		      (C, 32)
+	      %% Line 270
+	      <C> when 'true' ->
+		  %% Line 271
+		  C
+	    end
+	    -| [{'function',{'to_upper_char',1}}] )
+      -| [{'function',{'to_upper_char',1}}] )
+'to_lower'/1 =
+    %% Line 273
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'to_lower',1}}] ) of
+	      <S>
+		  when call 'erlang':'is_list'
+			(( _0
+			   -| [{'function',{'to_lower',1}}] )) ->
+		  %% Line 274
+		  ( letrec
+			'lc$^0'/1 =
+			    fun (_3) ->
+				case _3 of
+				  <[C|_2]> when 'true' ->
+				      let <_5> =
+					  apply 'to_lower_char'/1
+					      (C)
+				      in  let <_6> =
+					      apply 'lc$^0'/1
+						  (_2)
+					  in  ( [_5|_6]
+						-| ['compiler_generated'] )
+				  ( <[C|_2]> when 'true' ->
+					apply 'lc$^0'/1
+					    (_2)
+				    -| ['compiler_generated'] )
+				  <[]> when 'true' ->
+				      []
+				  ( <_4> when 'true' ->
+					call 'erlang':'error'
+					    ({'bad_generator',_4})
+				    -| ['compiler_generated'] )
+				end
+		    in  apply 'lc$^0'/1
+			    (S)
+		    -| ['list_comprehension'] )
+	      %% Line 275
+	      <C>
+		  when call 'erlang':'is_integer'
+			(( _0
+			   -| [{'function',{'to_lower',1}}] )) ->
+		  %% Line 276
+		  apply 'to_lower_char'/1
+		      (C)
+	      ( <_7> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_7}
+			     -| [{'function',{'to_lower',1}}] ))
+		      -| [{'function',{'to_lower',1}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'to_lower',1}}] )
+      -| [{'function',{'to_lower',1}}] )
+'to_upper'/1 =
+    %% Line 278
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'to_upper',1}}] ) of
+	      <S>
+		  when call 'erlang':'is_list'
+			(( _0
+			   -| [{'function',{'to_upper',1}}] )) ->
+		  %% Line 279
+		  ( letrec
+			'lc$^0'/1 =
+			    fun (_3) ->
+				case _3 of
+				  <[C|_2]> when 'true' ->
+				      let <_5> =
+					  apply 'to_upper_char'/1
+					      (C)
+				      in  let <_6> =
+					      apply 'lc$^0'/1
+						  (_2)
+					  in  ( [_5|_6]
+						-| ['compiler_generated'] )
+				  ( <[C|_2]> when 'true' ->
+					apply 'lc$^0'/1
+					    (_2)
+				    -| ['compiler_generated'] )
+				  <[]> when 'true' ->
+				      []
+				  ( <_4> when 'true' ->
+					call 'erlang':'error'
+					    ({'bad_generator',_4})
+				    -| ['compiler_generated'] )
+				end
+		    in  apply 'lc$^0'/1
+			    (S)
+		    -| ['list_comprehension'] )
+	      %% Line 280
+	      <C>
+		  when call 'erlang':'is_integer'
+			(( _0
+			   -| [{'function',{'to_upper',1}}] )) ->
+		  %% Line 281
+		  apply 'to_upper_char'/1
+		      (C)
+	      ( <_7> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_7}
+			     -| [{'function',{'to_upper',1}}] ))
+		      -| [{'function',{'to_upper',1}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'to_upper',1}}] )
+      -| [{'function',{'to_upper',1}}] )
+'join'/2 =
+    %% Line 283
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[],Sep>
+		  when call 'erlang':'is_list'
+			(Sep) ->
+		  %% Line 284
+		  []
+	      %% Line 285
+	      <[H|T],Sep> when 'true' ->
+		  let <_8> =
+		      letrec
+			  'lc$^0'/1 =
+			      %% Line 286
+			      fun (_4) ->
+				  case _4 of
+				    <[X|_3]> when 'true' ->
+					let <_6> =
+					    call 'erlang':'++'
+						(Sep, X)
+					in  let <_7> =
+						apply 'lc$^0'/1
+						    (_3)
+					    in  ( [_6|_7]
+						  -| ['compiler_generated'] )
+				    ( <[X|_3]> when 'true' ->
+					  apply 'lc$^0'/1
+					      (_3)
+				      -| ['compiler_generated'] )
+				    <[]> when 'true' ->
+					[]
+				    ( <_5> when 'true' ->
+					  call 'erlang':'error'
+					      ({'bad_generator',_5})
+				      -| ['compiler_generated'] )
+				  end
+		      in  %% Line 286
+			  apply 'lc$^0'/1
+			      (T)
+		  in  let <_9> =
+			  call %% Line 286
+			       'lists':%% Line 286
+				       'append'
+			      (%% Line 286
+			       ( _8
+				 -| ['list_comprehension'] ))
+		      in  %% Line 286
+			  call 'erlang':'++'
+			      (H, _9)
+	      ( <_11,_10> when 'true' ->
+		    ( primop 'match_fail'
+			  (( {'function_clause',_11,_10}
+			     -| [{'function',{'join',2}}] ))
+		      -| [{'function',{'join',2}}] )
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'join',2}}] )
+      -| [{'function',{'join',2}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('string')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('string', ( _0
+			   -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

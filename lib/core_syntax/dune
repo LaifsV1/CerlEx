@@ -1,0 +1,11 @@
+(library
+ (name syntax)
+ (preprocess
+  (pps ppx_sexp_conv))
+ (libraries sexplib))
+
+(ocamllex core_lexer)
+
+(menhir
+ (modules core_parser)
+ (flags --explain --dump))
