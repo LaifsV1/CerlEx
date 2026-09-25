@@ -2,8 +2,7 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
 CerlEx explores the interleavings of concurrent [Core Erlang](https://www.it.uu.se/research/group/hipe/cerl/)
-programs.  It is the prototype accompanying *Observation-Directed Trace
-Exploration*.
+programs.
 
 Rather than replaying a schedule from the initial state for each alternative,
 CerlEx retains program states and keeps the merge of per-sender message
@@ -51,8 +50,7 @@ points in `benchmarks/`:
 - `benchmarks/real_world/` — three Erlang programs taken from public
   repositories: a Chord distributed hash table, a two-phase commit protocol,
   and Chang--Roberts ring leader election, with output-free variants.  These
-  were written to be used rather than to exercise a model checker.  See the
-  paper for sources.
+  were written to be used rather than to exercise a model checker.
 - `benchmarks/ours/` — written for this work, including two families designed
   to be adversarial in opposite directions: `alltoall*`, where every process
   sends to every other before any receives, and `prefix_reuse_*`, where many
