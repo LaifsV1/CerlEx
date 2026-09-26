@@ -1,5 +1,6 @@
 # CerlEx
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22968974.svg)](https://doi.org/10.5281/zenodo.22968974)
 
 CerlEx explores the interleavings of concurrent [Core Erlang](https://www.it.uu.se/research/group/hipe/cerl/)
 programs.
